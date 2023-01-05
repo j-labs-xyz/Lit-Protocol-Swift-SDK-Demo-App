@@ -3,16 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00DDCD02BBD2035034A54B1C /* Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8C54B66FE2054C918C788 /* Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework */; };
+		1995686182DADCB9FB6369FD /* Pods_LitOAuthPKPSignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0929B9057D700DF220DC29 /* Pods_LitOAuthPKPSignUp.framework */; };
 		BA67949B2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = BA67949A2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc */; };
 		BA6794A12965A4FF00E22F56 /* LitProtocolSwiftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; };
 		BA6794A62965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794A52965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift */; };
 		BA6794A72965A4FF00E22F56 /* LitProtocolSwiftSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6794992965A4FF00E22F56 /* LitProtocolSwiftSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA6794B72965A53100E22F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794B62965A53100E22F56 /* AppDelegate.swift */; };
-		BA6794B92965A53100E22F56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794B82965A53100E22F56 /* SceneDelegate.swift */; };
 		BA6794BB2965A53100E22F56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794BA2965A53100E22F56 /* ViewController.swift */; };
 		BA6794BE2965A53100E22F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6794BC2965A53100E22F56 /* Main.storyboard */; };
 		BA6794C02965A53300E22F56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA6794BF2965A53300E22F56 /* Assets.xcassets */; };
@@ -22,10 +23,12 @@
 		BA6794D42965A57200E22F56 /* LitOAuthPKPSignUp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794CD2965A57100E22F56 /* LitOAuthPKPSignUp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA6794DA2965A58A00E22F56 /* LitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794D92965A58A00E22F56 /* LitClient.swift */; };
 		BA6794DF2965A5EB00E22F56 /* LitSwiftSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794DE2965A5EB00E22F56 /* LitSwiftSDK.swift */; };
-		BA6794E62965AD1600E22F56 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = BA6794E52965AD1600E22F56 /* GoogleSignIn */; };
-		BA6794E82965AD1600E22F56 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BA6794E72965AD1600E22F56 /* GoogleSignInSwift */; };
 		BA6794F32965BE3F00E22F56 /* LitProtocolSwiftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; };
 		BA8FD5742965BE9E008F687C /* LitProtocolSwiftSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA8FD5762966DF17008F687C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8FD5752966DF17008F687C /* SplashViewController.swift */; };
+		BA8FD5782966DFBB008F687C /* logo_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA8FD5772966DFBB008F687C /* logo_gif.gif */; };
+		CADBD86FAB7152BFE418B863 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55047A4043F07C8C0AC8E19 /* Pods_Example.framework */; };
+		DF6629C1104D358C85BF77F7 /* Pods_LitProtocolSwiftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476A90558571F47A9EB2C195 /* Pods_LitProtocolSwiftSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		451BFB0A858003FA217C22E2 /* Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		476A90558571F47A9EB2C195 /* Pods_LitProtocolSwiftSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LitProtocolSwiftSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EF0D9DCF831A3A50E86907D /* Pods-LitOAuthPKPSignUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitOAuthPKPSignUp.debug.xcconfig"; path = "Target Support Files/Pods-LitOAuthPKPSignUp/Pods-LitOAuthPKPSignUp.debug.xcconfig"; sourceTree = "<group>"; };
+		572CB0DF2E24765C624D3F9C /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		5F8D3E374F4693F1EA6F478D /* Pods-LitProtocolSwiftSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitProtocolSwiftSDK.release.xcconfig"; path = "Target Support Files/Pods-LitProtocolSwiftSDK/Pods-LitProtocolSwiftSDK.release.xcconfig"; sourceTree = "<group>"; };
+		92C5D63BF6B3F4EB9D0AB53E /* Pods-LitOAuthPKPSignUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitOAuthPKPSignUp.release.xcconfig"; path = "Target Support Files/Pods-LitOAuthPKPSignUp/Pods-LitOAuthPKPSignUp.release.xcconfig"; sourceTree = "<group>"; };
+		9B0929B9057D700DF220DC29 /* Pods_LitOAuthPKPSignUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LitOAuthPKPSignUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A45FEF5D9E4EC0F97B5076FB /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		B55047A4043F07C8C0AC8E19 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LitProtocolSwiftSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6794992965A4FF00E22F56 /* LitProtocolSwiftSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LitProtocolSwiftSDK.h; sourceTree = "<group>"; };
 		BA67949A2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = LitProtocolSwiftSDK.docc; sourceTree = "<group>"; };
@@ -75,7 +87,6 @@
 		BA6794A52965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitProtocolSwiftSDKTests.swift; sourceTree = "<group>"; };
 		BA6794B42965A53100E22F56 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6794B62965A53100E22F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA6794B82965A53100E22F56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BA6794BA2965A53100E22F56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA6794BD2965A53100E22F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA6794BF2965A53300E22F56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +96,11 @@
 		BA6794CF2965A57200E22F56 /* LitOAuthPKPSignUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LitOAuthPKPSignUp.h; sourceTree = "<group>"; };
 		BA6794D92965A58A00E22F56 /* LitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitClient.swift; sourceTree = "<group>"; };
 		BA6794DE2965A5EB00E22F56 /* LitSwiftSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitSwiftSDK.swift; sourceTree = "<group>"; };
+		BA8FD5752966DF17008F687C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		BA8FD5772966DFBB008F687C /* logo_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_gif.gif; sourceTree = "<group>"; };
+		E7BBD6C0ACD3CF64CA329567 /* Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig"; path = "Target Support Files/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		EAB8C54B66FE2054C918C788 /* Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2E102609A6AF0313AD5D701 /* Pods-LitProtocolSwiftSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitProtocolSwiftSDK.debug.xcconfig"; path = "Target Support Files/Pods-LitProtocolSwiftSDK/Pods-LitProtocolSwiftSDK.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF6629C1104D358C85BF77F7 /* Pods_LitProtocolSwiftSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +117,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA6794A12965A4FF00E22F56 /* LitProtocolSwiftSDK.framework in Frameworks */,
+				00DDCD02BBD2035034A54B1C /* Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,9 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA6794E82965AD1600E22F56 /* GoogleSignInSwift in Frameworks */,
 				BA6794D32965A57200E22F56 /* LitOAuthPKPSignUp.framework in Frameworks */,
-				BA6794E62965AD1600E22F56 /* GoogleSignIn in Frameworks */,
+				CADBD86FAB7152BFE418B863 /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,12 +135,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA6794F32965BE3F00E22F56 /* LitProtocolSwiftSDK.framework in Frameworks */,
+				1995686182DADCB9FB6369FD /* Pods_LitOAuthPKPSignUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		404C4A7FCAC82ED3712A75F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				572CB0DF2E24765C624D3F9C /* Pods-Example.debug.xcconfig */,
+				A45FEF5D9E4EC0F97B5076FB /* Pods-Example.release.xcconfig */,
+				4EF0D9DCF831A3A50E86907D /* Pods-LitOAuthPKPSignUp.debug.xcconfig */,
+				92C5D63BF6B3F4EB9D0AB53E /* Pods-LitOAuthPKPSignUp.release.xcconfig */,
+				F2E102609A6AF0313AD5D701 /* Pods-LitProtocolSwiftSDK.debug.xcconfig */,
+				5F8D3E374F4693F1EA6F478D /* Pods-LitProtocolSwiftSDK.release.xcconfig */,
+				451BFB0A858003FA217C22E2 /* Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.debug.xcconfig */,
+				E7BBD6C0ACD3CF64CA329567 /* Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BA67948C2965A4FF00E22F56 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +166,7 @@
 				BA6794CE2965A57200E22F56 /* LitOAuthPKPSignUp */,
 				BA6794972965A4FF00E22F56 /* Products */,
 				BA6794E22965AA1A00E22F56 /* Frameworks */,
+				404C4A7FCAC82ED3712A75F9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,8 +205,9 @@
 			isa = PBXGroup;
 			children = (
 				BA6794B62965A53100E22F56 /* AppDelegate.swift */,
-				BA6794B82965A53100E22F56 /* SceneDelegate.swift */,
 				BA6794BA2965A53100E22F56 /* ViewController.swift */,
+				BA8FD5772966DFBB008F687C /* logo_gif.gif */,
+				BA8FD5752966DF17008F687C /* SplashViewController.swift */,
 				BA6794BC2965A53100E22F56 /* Main.storyboard */,
 				BA6794BF2965A53300E22F56 /* Assets.xcassets */,
 				BA6794C12965A53300E22F56 /* LaunchScreen.storyboard */,
@@ -215,6 +250,10 @@
 		BA6794E22965AA1A00E22F56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B55047A4043F07C8C0AC8E19 /* Pods_Example.framework */,
+				9B0929B9057D700DF220DC29 /* Pods_LitOAuthPKPSignUp.framework */,
+				476A90558571F47A9EB2C195 /* Pods_LitProtocolSwiftSDK.framework */,
+				EAB8C54B66FE2054C918C788 /* Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,6 +284,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA6794AA2965A4FF00E22F56 /* Build configuration list for PBXNativeTarget "LitProtocolSwiftSDK" */;
 			buildPhases = (
+				BCAA69DA9E34BB05CDB29EC3 /* [CP] Check Pods Manifest.lock */,
 				BA6794912965A4FF00E22F56 /* Headers */,
 				BA6794922965A4FF00E22F56 /* Sources */,
 				BA6794932965A4FF00E22F56 /* Frameworks */,
@@ -263,6 +303,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA6794AD2965A4FF00E22F56 /* Build configuration list for PBXNativeTarget "LitProtocolSwiftSDKTests" */;
 			buildPhases = (
+				D47566AECEE0DE6E6646DC62 /* [CP] Check Pods Manifest.lock */,
 				BA67949C2965A4FF00E22F56 /* Sources */,
 				BA67949D2965A4FF00E22F56 /* Frameworks */,
 				BA67949E2965A4FF00E22F56 /* Resources */,
@@ -281,10 +322,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA6794C52965A53300E22F56 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
+				4E37CDE97659D4322164BF33 /* [CP] Check Pods Manifest.lock */,
 				BA6794B02965A53100E22F56 /* Sources */,
 				BA6794B12965A53100E22F56 /* Frameworks */,
 				BA6794B22965A53100E22F56 /* Resources */,
 				BA6794D82965A57200E22F56 /* Embed Frameworks */,
+				A828E7D82BE865BE728C2FD7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -293,8 +336,6 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				BA6794E52965AD1600E22F56 /* GoogleSignIn */,
-				BA6794E72965AD1600E22F56 /* GoogleSignInSwift */,
 			);
 			productName = Example;
 			productReference = BA6794B42965A53100E22F56 /* Example.app */;
@@ -304,6 +345,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA6794D52965A57200E22F56 /* Build configuration list for PBXNativeTarget "LitOAuthPKPSignUp" */;
 			buildPhases = (
+				A084AB1CF952335BAC65C610 /* [CP] Check Pods Manifest.lock */,
 				BA6794C82965A57100E22F56 /* Headers */,
 				BA6794C92965A57100E22F56 /* Sources */,
 				BA6794CA2965A57100E22F56 /* Frameworks */,
@@ -345,7 +387,7 @@
 				};
 			};
 			buildConfigurationList = BA6794902965A4FF00E22F56 /* Build configuration list for PBXProject "LitProtocolSwiftSDK" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -354,7 +396,6 @@
 			);
 			mainGroup = BA67948C2965A4FF00E22F56;
 			packageReferences = (
-				BA6794E42965AD1600E22F56 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = BA6794972965A4FF00E22F56 /* Products */;
 			projectDirPath = "";
@@ -389,6 +430,7 @@
 			files = (
 				BA6794C32965A53300E22F56 /* LaunchScreen.storyboard in Resources */,
 				BA6794C02965A53300E22F56 /* Assets.xcassets in Resources */,
+				BA8FD5782966DFBB008F687C /* logo_gif.gif in Resources */,
 				BA6794BE2965A53100E22F56 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +443,114 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E37CDE97659D4322164BF33 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A084AB1CF952335BAC65C610 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LitOAuthPKPSignUp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A828E7D82BE865BE728C2FD7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCAA69DA9E34BB05CDB29EC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LitProtocolSwiftSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D47566AECEE0DE6E6646DC62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA6794922965A4FF00E22F56 /* Sources */ = {
@@ -426,7 +576,7 @@
 			files = (
 				BA6794BB2965A53100E22F56 /* ViewController.swift in Sources */,
 				BA6794B72965A53100E22F56 /* AppDelegate.swift in Sources */,
-				BA6794B92965A53100E22F56 /* SceneDelegate.swift in Sources */,
+				BA8FD5762966DF17008F687C /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +750,7 @@
 		};
 		BA6794AB2965A4FF00E22F56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E102609A6AF0313AD5D701 /* Pods-LitProtocolSwiftSDK.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -629,6 +780,7 @@
 		};
 		BA6794AC2965A4FF00E22F56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F8D3E374F4693F1EA6F478D /* Pods-LitProtocolSwiftSDK.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -658,6 +810,7 @@
 		};
 		BA6794AE2965A4FF00E22F56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 451BFB0A858003FA217C22E2 /* Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -676,6 +829,7 @@
 		};
 		BA6794AF2965A4FF00E22F56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7BBD6C0ACD3CF64CA329567 /* Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -694,6 +848,7 @@
 		};
 		BA6794C62965A53300E22F56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 572CB0DF2E24765C624D3F9C /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -723,6 +878,7 @@
 		};
 		BA6794C72965A53300E22F56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A45FEF5D9E4EC0F97B5076FB /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -752,6 +908,7 @@
 		};
 		BA6794D62965A57200E22F56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EF0D9DCF831A3A50E86907D /* Pods-LitOAuthPKPSignUp.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -783,6 +940,7 @@
 		};
 		BA6794D72965A57200E22F56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92C5D63BF6B3F4EB9D0AB53E /* Pods-LitOAuthPKPSignUp.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -860,30 +1018,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		BA6794E42965AD1600E22F56 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BA6794E52965AD1600E22F56 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BA6794E42965AD1600E22F56 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-		BA6794E72965AD1600E22F56 /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BA6794E42965AD1600E22F56 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BA67948D2965A4FF00E22F56 /* Project object */;
 }

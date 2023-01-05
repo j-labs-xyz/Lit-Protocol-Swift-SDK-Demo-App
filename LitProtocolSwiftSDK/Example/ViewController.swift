@@ -8,6 +8,7 @@
 import UIKit
 import LitOAuthPKPSignUp
 import GoogleSignIn
+import SnapKit
 let GoogleClientID = "214877071991-0g57o8e6viau3350kni9ecdo9k2othgv.apps.googleusercontent.com"
 class ViewController: UIViewController {
     lazy var googleSignInButton: GIDSignInButton = {
@@ -17,7 +18,13 @@ class ViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.googleSignInButton.frame = CGRect(x: 40, y: 100, width: view.frame.size.width - 80, height: 50)
+        self.view.addSubview(self.googleSignInButton)
+        self.googleSignInButton.snp.makeConstraints { make in
+            make.left.equalTo(40)
+            make.right.equalTo(-40)
+            make.top.equalTo(100)
+            make.height.equalTo(50)
+        }
     }
     
     override func viewDidLoad() {
