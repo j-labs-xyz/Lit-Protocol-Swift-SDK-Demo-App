@@ -98,6 +98,7 @@
 		BA6794DE2965A5EB00E22F56 /* LitSwiftSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitSwiftSDK.swift; sourceTree = "<group>"; };
 		BA8FD5752966DF17008F687C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BA8FD5772966DFBB008F687C /* logo_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_gif.gif; sourceTree = "<group>"; };
+		BA8FD57A2966F14F008F687C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BBD6C0ACD3CF64CA329567 /* Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig"; path = "Target Support Files/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		EAB8C54B66FE2054C918C788 /* Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E102609A6AF0313AD5D701 /* Pods-LitProtocolSwiftSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitProtocolSwiftSDK.debug.xcconfig"; path = "Target Support Files/Pods-LitProtocolSwiftSDK/Pods-LitProtocolSwiftSDK.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,8 +207,8 @@
 			children = (
 				BA6794B62965A53100E22F56 /* AppDelegate.swift */,
 				BA6794BA2965A53100E22F56 /* ViewController.swift */,
-				BA8FD5772966DFBB008F687C /* logo_gif.gif */,
 				BA8FD5752966DF17008F687C /* SplashViewController.swift */,
+				BA8FD5772966DFBB008F687C /* logo_gif.gif */,
 				BA6794BC2965A53100E22F56 /* Main.storyboard */,
 				BA6794BF2965A53300E22F56 /* Assets.xcassets */,
 				BA6794C12965A53300E22F56 /* LaunchScreen.storyboard */,
@@ -250,6 +251,7 @@
 		BA6794E22965AA1A00E22F56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA8FD57A2966F14F008F687C /* Alamofire.framework */,
 				B55047A4043F07C8C0AC8E19 /* Pods_Example.framework */,
 				9B0929B9057D700DF220DC29 /* Pods_LitOAuthPKPSignUp.framework */,
 				476A90558571F47A9EB2C195 /* Pods_LitProtocolSwiftSDK.framework */,
