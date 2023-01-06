@@ -9,7 +9,7 @@ import UIKit
 import LitOAuthPKPSignUp
 import GoogleSignIn
 import SnapKit
-let relayApi = "https://lit-relay-server.api.3wlabs.xyz:3001/"
+let relayApi = "http://localhost:3001/"
 class ViewController: UIViewController {
     lazy var googleSignInButton: GIDSignInButton = {
         let button = GIDSignInButton()
@@ -23,11 +23,8 @@ class ViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
+    
     lazy var OAuthClient = LitClient(relay: relayApi)
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +43,7 @@ class ViewController: UIViewController {
             make.top.equalTo(googleSignInButton.snp.bottom).offset(30)
         }
         self.googleSignInButton.addTarget(self, action: #selector(didClickGoogleSignUp), for: .touchUpInside)
+       
     }
 
     @objc func didClickGoogleSignUp() {
@@ -75,9 +73,11 @@ class ViewController: UIViewController {
         OAuthClient.pollRequestUntilTerminalState(with: requestId) { [weak self]result, error in
             guard let `self` = self else { return }
             if let result = result {
-                
+                let pkpEthAddress = result["pkpEthAddress"] as? String ?? ""
+                let pkpPublicKey = result["pkpPublicKey"] as? String ?? ""
+                self.infoLabel.text = "pkpEthAddress: \(pkpEthAddress) \npkpPublicKey: \(pkpPublicKey)"
             } else if let error = error {
-                
+                self.infoLabel.text = error
             }
         }
     }
