@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-let RELAY_SERVER = "http://localhost:3001/"
+let RELAY_SERVER = "https://localhost:3001/"
 
 var safeBottomHeight: CGFloat {
     return UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
