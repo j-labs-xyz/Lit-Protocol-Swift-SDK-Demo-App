@@ -9,7 +9,7 @@ import UIKit
 import LitOAuthPKPSignUp
 import GoogleSignIn
 import SnapKit
-let relayApi = "http://localhost:3001/"
+let relayApi = "https://localhost:3001/"
 class ViewController: UIViewController {
     lazy var googleSignInButton: GIDSignInButton = {
         let button = GIDSignInButton()
