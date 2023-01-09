@@ -13,19 +13,16 @@ import LitOAuthPKPSignUp
 import GoogleSignIn
 
 class SignInViewController: UIViewController {
-    lazy var litLogo: FLAnimatedImageView = {
-        let logo = FLAnimatedImageView()
-        if let url = Bundle.main.url(forResource: "logo_gif", withExtension: "gif"), let data = try? Data(contentsOf: url) {
-            let image = FLAnimatedImage(gifData: data)
-            logo.animatedImage = image
-        }
-        logo.startAnimating()
+
+    lazy var googleLogo: UIImageView = {
+        let logo = UIImageView()
+        logo.image = UIImage(named: "google_logo")
         return logo
     }()
     
-    lazy var googleLogo: UIImageView = {
+    lazy var litLogo: UIImageView = {
         let logo = UIImageView()
-        logo.image = UIImage(named: "google_img")
+        logo.image = UIImage(named: "lit_logo")
         return logo
     }()
     
@@ -43,23 +40,23 @@ class SignInViewController: UIViewController {
         arrowRight.contentMode = .scaleAspectFit
         self.view.addSubview(arrowRight)
         arrowRight.snp.makeConstraints { make in
-            make.top.equalTo(200)
+            make.top.equalTo(400)
             make.centerX.equalToSuperview()
             make.size.equalTo(35)
-        }
-        
-        self.view.addSubview(self.googleLogo)
-        self.googleLogo.snp.makeConstraints { make in
-            make.centerY.equalTo(arrowRight)
-            make.right.equalTo(arrowRight.snp.left).offset(-50)
-            make.size.equalTo(50)
         }
         
         self.view.addSubview(self.litLogo)
         self.litLogo.snp.makeConstraints { make in
             make.centerY.equalTo(arrowRight)
-            make.left.equalTo(arrowRight.snp.left).offset(50)
+            make.right.equalTo(arrowRight.snp.left).offset(0)
             make.size.equalTo(100)
+        }
+        
+        self.view.addSubview(self.googleLogo)
+        self.googleLogo.snp.makeConstraints { make in
+            make.centerY.equalTo(arrowRight)
+            make.left.equalTo(arrowRight.snp.left).offset(50)
+            make.size.equalTo(50)
         }
 
         let siginButton = UIButton(type: .custom)

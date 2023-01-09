@@ -15,12 +15,14 @@ PODS:
     - AppAuth/Core (~> 1.6)
     - GTMSessionFetcher/Core (< 4.0, >= 1.5)
   - GTMSessionFetcher/Core (3.0.0)
+  - Kingfisher (6.3.1)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.6.0)
   - FLAnimatedImage (~> 1.0.0)
   - GoogleSignIn (~> 7.0.0)
+  - Kingfisher (= 6.3.1)
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
+    - Kingfisher
     - SnapKit
 
 SPEC CHECKSUMS:
@@ -40,8 +43,9 @@ SPEC CHECKSUMS:
   GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
   GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
   GTMSessionFetcher: c1edebe64e9fb4e8f6415d018edf1fd3eac074a1
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 17569276bffaef6c5e944761be145208b0831854
+PODFILE CHECKSUM: 9d75565a4bf8f625355b07387ad688524edc7d1f
 
 COCOAPODS: 1.11.3
