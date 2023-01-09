@@ -14,7 +14,6 @@
 		BA6794A62965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794A52965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift */; };
 		BA6794A72965A4FF00E22F56 /* LitProtocolSwiftSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6794992965A4FF00E22F56 /* LitProtocolSwiftSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA6794B72965A53100E22F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794B62965A53100E22F56 /* AppDelegate.swift */; };
-		BA6794BB2965A53100E22F56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794BA2965A53100E22F56 /* ViewController.swift */; };
 		BA6794BE2965A53100E22F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6794BC2965A53100E22F56 /* Main.storyboard */; };
 		BA6794C02965A53300E22F56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA6794BF2965A53300E22F56 /* Assets.xcassets */; };
 		BA6794C32965A53300E22F56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6794C12965A53300E22F56 /* LaunchScreen.storyboard */; };
@@ -27,6 +26,10 @@
 		BA8FD5742965BE9E008F687C /* LitProtocolSwiftSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA8FD5762966DF17008F687C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8FD5752966DF17008F687C /* SplashViewController.swift */; };
 		BA8FD5782966DFBB008F687C /* logo_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA8FD5772966DFBB008F687C /* logo_gif.gif */; };
+		BAE9B298296BCF0400579413 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9B297296BCF0400579413 /* SignInViewController.swift */; };
+		BAE9B29A296BD30400579413 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9B299296BD30400579413 /* Constants.swift */; };
+		BAE9B29C296BD49E00579413 /* MintingPKPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9B29B296BD49E00579413 /* MintingPKPViewController.swift */; };
+		BAE9B29E296BE1CB00579413 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9B29D296BE1CB00579413 /* WalletViewController.swift */; };
 		CADBD86FAB7152BFE418B863 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55047A4043F07C8C0AC8E19 /* Pods_Example.framework */; };
 		DF6629C1104D358C85BF77F7 /* Pods_LitProtocolSwiftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476A90558571F47A9EB2C195 /* Pods_LitProtocolSwiftSDK.framework */; };
 /* End PBXBuildFile section */
@@ -87,7 +90,6 @@
 		BA6794A52965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitProtocolSwiftSDKTests.swift; sourceTree = "<group>"; };
 		BA6794B42965A53100E22F56 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6794B62965A53100E22F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA6794BA2965A53100E22F56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA6794BD2965A53100E22F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA6794BF2965A53300E22F56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA6794C22965A53300E22F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,10 @@
 		BA8FD5752966DF17008F687C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BA8FD5772966DFBB008F687C /* logo_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_gif.gif; sourceTree = "<group>"; };
 		BA8FD57A2966F14F008F687C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE9B297296BCF0400579413 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		BAE9B299296BD30400579413 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BAE9B29B296BD49E00579413 /* MintingPKPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MintingPKPViewController.swift; sourceTree = "<group>"; };
+		BAE9B29D296BE1CB00579413 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		E7BBD6C0ACD3CF64CA329567 /* Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig"; path = "Target Support Files/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		EAB8C54B66FE2054C918C788 /* Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E102609A6AF0313AD5D701 /* Pods-LitProtocolSwiftSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LitProtocolSwiftSDK.debug.xcconfig"; path = "Target Support Files/Pods-LitProtocolSwiftSDK/Pods-LitProtocolSwiftSDK.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,8 +211,11 @@
 		BA6794B52965A53100E22F56 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				BAE9B299296BD30400579413 /* Constants.swift */,
 				BA6794B62965A53100E22F56 /* AppDelegate.swift */,
-				BA6794BA2965A53100E22F56 /* ViewController.swift */,
+				BAE9B29B296BD49E00579413 /* MintingPKPViewController.swift */,
+				BAE9B297296BCF0400579413 /* SignInViewController.swift */,
+				BAE9B29D296BE1CB00579413 /* WalletViewController.swift */,
 				BA8FD5752966DF17008F687C /* SplashViewController.swift */,
 				BA8FD5772966DFBB008F687C /* logo_gif.gif */,
 				BA6794BC2965A53100E22F56 /* Main.storyboard */,
@@ -576,7 +585,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA6794BB2965A53100E22F56 /* ViewController.swift in Sources */,
+				BAE9B29A296BD30400579413 /* Constants.swift in Sources */,
+				BAE9B29E296BE1CB00579413 /* WalletViewController.swift in Sources */,
+				BAE9B298296BCF0400579413 /* SignInViewController.swift in Sources */,
+				BAE9B29C296BD49E00579413 /* MintingPKPViewController.swift in Sources */,
 				BA6794B72965A53100E22F56 /* AppDelegate.swift in Sources */,
 				BA8FD5762966DF17008F687C /* SplashViewController.swift in Sources */,
 			);

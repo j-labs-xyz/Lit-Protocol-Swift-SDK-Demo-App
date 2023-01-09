@@ -42,6 +42,8 @@ public class LitClient {
                     let error = "Empty requestId"
                     completionHandler(nil,error)
                 }
+            } else {
+                completionHandler(nil, "Something wrong with the API call")
             }
         }
     }
@@ -64,6 +66,8 @@ public class LitClient {
                         self.pollRequestUntilTerminalState(with: requestId, completionHandler: completionHandler)
                     }
                 }
+            } else {
+                completionHandler(nil, "Something wrong with the API call")
             }
         }
     }

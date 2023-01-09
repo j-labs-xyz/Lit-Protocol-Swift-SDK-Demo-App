@@ -22,6 +22,7 @@ class SplashViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .black
         self.view.addSubview(logoImageView)
         logoImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -37,7 +38,7 @@ class SplashViewController: UIViewController {
     
     func gotoHomeVC() {
         if let window =  (UIApplication.shared.delegate as? AppDelegate)?.window {
-            window.rootViewController = ViewController()
+            window.rootViewController = SignInViewController()
         }
     }
     

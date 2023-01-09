@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = SplashViewController()
         window?.makeKeyAndVisible()
+        window?.backgroundColor = .darkGray
         return true
     }
     
