@@ -36,7 +36,7 @@ class SignInViewController: UIViewController {
 
        
         let arrowRight = UIImageView()
-        arrowRight.image = UIImage.init(named: "arrow_right2")
+        arrowRight.image = UIImage.init(named: "arrow_right")
         arrowRight.contentMode = .scaleAspectFit
         self.view.addSubview(arrowRight)
         arrowRight.snp.makeConstraints { make in
@@ -55,7 +55,7 @@ class SignInViewController: UIViewController {
         self.view.addSubview(self.googleLogo)
         self.googleLogo.snp.makeConstraints { make in
             make.centerY.equalTo(arrowRight)
-            make.left.equalTo(arrowRight.snp.left).offset(50)
+            make.left.equalTo(arrowRight.snp.left).offset(60)
             make.size.equalTo(50)
         }
 
