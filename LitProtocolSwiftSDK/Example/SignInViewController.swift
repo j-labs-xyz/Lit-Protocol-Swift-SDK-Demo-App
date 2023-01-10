@@ -35,28 +35,27 @@ class SignInViewController: UIViewController {
         self.view.backgroundColor = UIColor.black
 
        
-        let arrowRight = UIImageView()
-        arrowRight.image = UIImage.init(named: "arrow_right")
-        arrowRight.contentMode = .scaleAspectFit
-        self.view.addSubview(arrowRight)
-        arrowRight.snp.makeConstraints { make in
-            make.top.equalTo(400)
-            make.centerX.equalToSuperview()
-            make.size.equalTo(35)
+        let transformIcon = UIImageView()
+        transformIcon.image = UIImage.init(named: "transform")
+        transformIcon.contentMode = .scaleAspectFit
+        self.view.addSubview(transformIcon)
+        transformIcon.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 80, height: 40))
         }
         
         self.view.addSubview(self.litLogo)
         self.litLogo.snp.makeConstraints { make in
-            make.centerY.equalTo(arrowRight)
-            make.right.equalTo(arrowRight.snp.left).offset(0)
-            make.size.equalTo(100)
+            make.centerY.equalTo(transformIcon)
+            make.right.equalTo(transformIcon.snp.left).offset(0)
+            make.size.equalTo(160)
         }
         
         self.view.addSubview(self.googleLogo)
         self.googleLogo.snp.makeConstraints { make in
-            make.centerY.equalTo(arrowRight)
-            make.left.equalTo(arrowRight.snp.left).offset(60)
-            make.size.equalTo(50)
+            make.centerY.equalTo(transformIcon)
+            make.left.equalTo(transformIcon.snp.right).offset(30)
+            make.size.equalTo(90)
         }
 
         let siginButton = UIButton(type: .custom)
@@ -66,10 +65,10 @@ class SignInViewController: UIViewController {
         siginButton.addTarget(self, action: #selector(gotoSignin), for: .touchUpInside)
         self.view.addSubview(siginButton)
         siginButton.snp.makeConstraints { make in
-            make.left.equalTo(60)
-            make.right.equalTo(-60)
-            make.top.equalTo(arrowRight.snp.bottom).offset(70)
-            make.height.equalTo(44)
+            make.left.equalTo(16)
+            make.right.equalTo(-16)
+            make.bottom.equalTo(-safeBottomHeight - 20)
+            make.height.equalTo(50)
         }
         siginButton.layer.borderWidth = 1
         siginButton.layer.borderColor = UIColor.white.cgColor

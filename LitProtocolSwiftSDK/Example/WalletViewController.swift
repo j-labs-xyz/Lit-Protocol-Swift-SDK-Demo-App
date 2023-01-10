@@ -141,20 +141,22 @@ class WalletViewController: UIViewController {
             make.top.equalTo(addressLabel.snp.bottom).offset(8)
             make.right.equalTo(-16)
         }
-        self.view.addSubview(self.sendButton)
-        self.view.addSubview(self.receiveButton)
-        self.sendButton.snp.makeConstraints { make in
+         
+        let bottomStackView = UIStackView()
+        bottomStackView.spacing = 20
+        bottomStackView.axis = .horizontal
+        bottomStackView.distribution = .fillEqually
+        bottomStackView.addArrangedSubview(sendButton)
+        bottomStackView.addArrangedSubview(receiveButton)
+        self.view.addSubview(bottomStackView)
+        bottomStackView.snp.makeConstraints { make in
             make.left.equalTo(16)
+            make.right.equalTo(-16)
             make.bottom.equalTo(-safeBottomHeight - 20)
             make.height.equalTo(50)
         }
-        self.sendButton.addTarget(self, action: #selector(clickSend), for: .touchUpInside)
         
-        self.receiveButton.snp.makeConstraints { make in
-            make.right.equalTo(-16)
-            make.centerY.width.height.equalTo(self.sendButton)
-            make.left.equalTo(self.sendButton.snp.right).offset(20)
-        }
+        self.sendButton.addTarget(self, action: #selector(clickSend), for: .touchUpInside)
         self.receiveButton.addTarget(self, action: #selector(clickReceive), for: .touchUpInside)
 
     }
