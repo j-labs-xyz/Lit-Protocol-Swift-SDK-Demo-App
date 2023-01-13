@@ -30,7 +30,7 @@ class MintingPKPViewController: UIViewController {
         return button
     }()
     
-    lazy var OAuthClient = LitClient(relay: RELAY_SERVER)
+    lazy var OAuthClient = LitOAuthClient(relay: RELAY_SERVER)
     
     lazy var mintingInfoLabel = UILabel()
 

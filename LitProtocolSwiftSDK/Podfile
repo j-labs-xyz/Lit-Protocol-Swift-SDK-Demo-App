@@ -7,7 +7,8 @@ target 'Example' do
   pod 'SnapKit', '~> 5.6.0'
   pod 'GoogleSignIn', '~> 7.0.0'
   pod 'FLAnimatedImage', '~> 1.0.0'
-  # Pods for Example
+  pod "PromiseKit", "~> 6.8"
+
 
 end
 
@@ -25,11 +26,11 @@ end
 target 'LitProtocolSwiftSDK' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
-  # Pods for LitProtocolSwiftSDK
-
+  pod "PromiseKit", "~> 6.8"
+  
   target 'LitProtocolSwiftSDKTests' do
     # Pods for testing
   end
 
 end
+

@@ -8,7 +8,7 @@
 import Foundation
 import LitProtocolSwiftSDK
 import Alamofire
-public class LitClient {
+public class LitOAuthClient {
     
     let relayApi: String
     

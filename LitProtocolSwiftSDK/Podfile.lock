@@ -16,6 +16,15 @@ PODS:
     - GTMSessionFetcher/Core (< 4.0, >= 1.5)
   - GTMSessionFetcher/Core (3.0.0)
   - Kingfisher (6.3.1)
+  - PromiseKit (6.18.1):
+    - PromiseKit/CorePromise (= 6.18.1)
+    - PromiseKit/Foundation (= 6.18.1)
+    - PromiseKit/UIKit (= 6.18.1)
+  - PromiseKit/CorePromise (6.18.1)
+  - PromiseKit/Foundation (6.18.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.18.1):
+    - PromiseKit/CorePromise
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
@@ -23,6 +32,7 @@ DEPENDENCIES:
   - FLAnimatedImage (~> 1.0.0)
   - GoogleSignIn (~> 7.0.0)
   - Kingfisher (= 6.3.1)
+  - PromiseKit (~> 6.8)
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
@@ -34,6 +44,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - Kingfisher
+    - PromiseKit
     - SnapKit
 
 SPEC CHECKSUMS:
@@ -44,8 +55,9 @@ SPEC CHECKSUMS:
   GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
   GTMSessionFetcher: c1edebe64e9fb4e8f6415d018edf1fd3eac074a1
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 9d75565a4bf8f625355b07387ad688524edc7d1f
+PODFILE CHECKSUM: 5ccfba092b79abec87b0f2259058ff3a595ecceb
 
 COCOAPODS: 1.11.3

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		00DDCD02BBD2035034A54B1C /* Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB8C54B66FE2054C918C788 /* Pods_LitProtocolSwiftSDK_LitProtocolSwiftSDKTests.framework */; };
 		1995686182DADCB9FB6369FD /* Pods_LitOAuthPKPSignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0929B9057D700DF220DC29 /* Pods_LitOAuthPKPSignUp.framework */; };
+		BA211D1229715A7700C7BB26 /* NodeClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1129715A7700C7BB26 /* NodeClientConfig.swift */; };
+		BA211D1429715F2900C7BB26 /* NodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1329715F2900C7BB26 /* NodeResponse.swift */; };
+		BA211D162971630F00C7BB26 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D152971630F00C7BB26 /* Network.swift */; };
+		BA211D18297167AD00C7BB26 /* LitSwiftSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D17297167AD00C7BB26 /* LitSwiftSDK.swift */; };
+		BA211D1B297176BA00C7BB26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1A297176BA00C7BB26 /* Extensions.swift */; };
+		BA211D1D29717AF900C7BB26 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1C29717AF900C7BB26 /* Error.swift */; };
 		BA67949B2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = BA67949A2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc */; };
 		BA6794A12965A4FF00E22F56 /* LitProtocolSwiftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; };
 		BA6794A62965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794A52965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift */; };
@@ -20,8 +26,8 @@
 		BA6794D02965A57200E22F56 /* LitOAuthPKPSignUp.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6794CF2965A57200E22F56 /* LitOAuthPKPSignUp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA6794D32965A57200E22F56 /* LitOAuthPKPSignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794CD2965A57100E22F56 /* LitOAuthPKPSignUp.framework */; };
 		BA6794D42965A57200E22F56 /* LitOAuthPKPSignUp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794CD2965A57100E22F56 /* LitOAuthPKPSignUp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BA6794DA2965A58A00E22F56 /* LitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794D92965A58A00E22F56 /* LitClient.swift */; };
-		BA6794DF2965A5EB00E22F56 /* LitSwiftSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794DE2965A5EB00E22F56 /* LitSwiftSDK.swift */; };
+		BA6794DA2965A58A00E22F56 /* LitOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794D92965A58A00E22F56 /* LitOAuthClient.swift */; };
+		BA6794DF2965A5EB00E22F56 /* LitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794DE2965A5EB00E22F56 /* LitClient.swift */; };
 		BA6794F32965BE3F00E22F56 /* LitProtocolSwiftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; };
 		BA8FD5742965BE9E008F687C /* LitProtocolSwiftSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA8FD5762966DF17008F687C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8FD5752966DF17008F687C /* SplashViewController.swift */; };
@@ -83,6 +89,12 @@
 		9B0929B9057D700DF220DC29 /* Pods_LitOAuthPKPSignUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LitOAuthPKPSignUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45FEF5D9E4EC0F97B5076FB /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		B55047A4043F07C8C0AC8E19 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA211D1129715A7700C7BB26 /* NodeClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeClientConfig.swift; sourceTree = "<group>"; };
+		BA211D1329715F2900C7BB26 /* NodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeResponse.swift; sourceTree = "<group>"; };
+		BA211D152971630F00C7BB26 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		BA211D17297167AD00C7BB26 /* LitSwiftSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitSwiftSDK.swift; sourceTree = "<group>"; };
+		BA211D1A297176BA00C7BB26 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BA211D1C29717AF900C7BB26 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LitProtocolSwiftSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6794992965A4FF00E22F56 /* LitProtocolSwiftSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LitProtocolSwiftSDK.h; sourceTree = "<group>"; };
 		BA67949A2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = LitProtocolSwiftSDK.docc; sourceTree = "<group>"; };
@@ -96,8 +108,8 @@
 		BA6794C42965A53300E22F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA6794CD2965A57100E22F56 /* LitOAuthPKPSignUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LitOAuthPKPSignUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6794CF2965A57200E22F56 /* LitOAuthPKPSignUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LitOAuthPKPSignUp.h; sourceTree = "<group>"; };
-		BA6794D92965A58A00E22F56 /* LitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitClient.swift; sourceTree = "<group>"; };
-		BA6794DE2965A5EB00E22F56 /* LitSwiftSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitSwiftSDK.swift; sourceTree = "<group>"; };
+		BA6794D92965A58A00E22F56 /* LitOAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitOAuthClient.swift; sourceTree = "<group>"; };
+		BA6794DE2965A5EB00E22F56 /* LitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitClient.swift; sourceTree = "<group>"; };
 		BA8FD5752966DF17008F687C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BA8FD5772966DFBB008F687C /* logo_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_gif.gif; sourceTree = "<group>"; };
 		BA8FD57A2966F14F008F687C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +176,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BA211D1029715A2900C7BB26 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA211D1129715A7700C7BB26 /* NodeClientConfig.swift */,
+				BA211D1329715F2900C7BB26 /* NodeResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA211D192971766900C7BB26 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BA211D1A297176BA00C7BB26 /* Extensions.swift */,
+				BA211D1C29717AF900C7BB26 /* Error.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BA67948C2965A4FF00E22F56 = {
 			isa = PBXGroup;
 			children = (
@@ -191,11 +221,13 @@
 		BA6794982965A4FF00E22F56 /* LitProtocolSwiftSDK */ = {
 			isa = PBXGroup;
 			children = (
+				BA211D192971766900C7BB26 /* Utils */,
+				BA211D1029715A2900C7BB26 /* Model */,
 				BA6794DD2965A5DF00E22F56 /* Core */,
-				BA6794DC2965A5BE00E22F56 /* Extension */,
 				BA6794DB2965A5AB00E22F56 /* Networking */,
 				BA6794992965A4FF00E22F56 /* LitProtocolSwiftSDK.h */,
 				BA67949A2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc */,
+				BA211D17297167AD00C7BB26 /* LitSwiftSDK.swift */,
 			);
 			path = LitProtocolSwiftSDK;
 			sourceTree = "<group>";
@@ -230,7 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				BA6794CF2965A57200E22F56 /* LitOAuthPKPSignUp.h */,
-				BA6794D92965A58A00E22F56 /* LitClient.swift */,
+				BA6794D92965A58A00E22F56 /* LitOAuthClient.swift */,
 			);
 			path = LitOAuthPKPSignUp;
 			sourceTree = "<group>";
@@ -238,21 +270,15 @@
 		BA6794DB2965A5AB00E22F56 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				BA211D152971630F00C7BB26 /* Network.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		BA6794DC2965A5BE00E22F56 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		BA6794DD2965A5DF00E22F56 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				BA6794DE2965A5EB00E22F56 /* LitSwiftSDK.swift */,
+				BA6794DE2965A5EB00E22F56 /* LitClient.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -318,6 +344,7 @@
 				BA67949C2965A4FF00E22F56 /* Sources */,
 				BA67949D2965A4FF00E22F56 /* Frameworks */,
 				BA67949E2965A4FF00E22F56 /* Resources */,
+				660E747F3AE107E449006474 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -346,8 +373,6 @@
 				BA6794D22965A57200E22F56 /* PBXTargetDependency */,
 			);
 			name = Example;
-			packageProductDependencies = (
-			);
 			productName = Example;
 			productReference = BA6794B42965A53100E22F56 /* Example.app */;
 			productType = "com.apple.product-type.application";
@@ -406,8 +431,6 @@
 				Base,
 			);
 			mainGroup = BA67948C2965A4FF00E22F56;
-			packageReferences = (
-			);
 			productRefGroup = BA6794972965A4FF00E22F56 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -476,6 +499,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		660E747F3AE107E449006474 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests/Pods-LitProtocolSwiftSDK-LitProtocolSwiftSDKTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A084AB1CF952335BAC65C610 /* [CP] Check Pods Manifest.lock */ = {
@@ -568,8 +608,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA6794DF2965A5EB00E22F56 /* LitSwiftSDK.swift in Sources */,
+				BA211D1D29717AF900C7BB26 /* Error.swift in Sources */,
+				BA211D162971630F00C7BB26 /* Network.swift in Sources */,
+				BA6794DF2965A5EB00E22F56 /* LitClient.swift in Sources */,
 				BA67949B2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc in Sources */,
+				BA211D1429715F2900C7BB26 /* NodeResponse.swift in Sources */,
+				BA211D18297167AD00C7BB26 /* LitSwiftSDK.swift in Sources */,
+				BA211D1229715A7700C7BB26 /* NodeClientConfig.swift in Sources */,
+				BA211D1B297176BA00C7BB26 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,7 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA6794DA2965A58A00E22F56 /* LitClient.swift in Sources */,
+				BA6794DA2965A58A00E22F56 /* LitOAuthClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

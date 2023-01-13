@@ -11,6 +11,7 @@ import SnapKit
 import FLAnimatedImage
 import LitOAuthPKPSignUp
 import GoogleSignIn
+import LitProtocolSwiftSDK
 
 class SignInViewController: UIViewController {
 
@@ -73,15 +74,14 @@ class SignInViewController: UIViewController {
         siginButton.layer.borderWidth = 1
         siginButton.layer.borderColor = UIColor.white.cgColor
         siginButton.layer.cornerRadius = 4
-        
     }
-    
     
     @objc
     func gotoSignin() {
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] res, err in
             guard let `self` = self else { return }
             if let profile = res?.user.profile, let tokenString = res?.user.idToken?.tokenString {
+                print(tokenString)
                 let vc = MintingPKPViewController(googleTokenString: tokenString) { pkpEthAddress, pkpPublicKey in
                     self.didMintPKP(pkpEthAddress: pkpEthAddress, pkpPublicKey: pkpPublicKey, profile: profile)
                 }

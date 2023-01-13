@@ -10,6 +10,8 @@ import SnapKit
 import UIKit
 import GoogleSignIn
 import Kingfisher
+import LitProtocolSwiftSDK
+
 class WalletViewController: UIViewController {
     
     let pkpEthAddress: String
@@ -68,7 +70,7 @@ class WalletViewController: UIViewController {
     
     lazy var sendButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Send", for: .normal)
+        button.setTitle("Connect", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.backgroundColor = UIColor.black
         button.setTitleColor(.white, for: .normal)
@@ -78,7 +80,7 @@ class WalletViewController: UIViewController {
     
     lazy var receiveButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Receive", for: .normal)
+        button.setTitle("Signature", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 4
@@ -87,6 +89,8 @@ class WalletViewController: UIViewController {
         return button
     }()
     
+    var litClient: LitClient = LitClient()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
@@ -160,6 +164,8 @@ class WalletViewController: UIViewController {
         self.receiveButton.addTarget(self, action: #selector(clickReceive), for: .touchUpInside)
 
     }
+    
+    
     func updateUI() {
         let avatarUrl = self.profile.imageURL(withDimension: 100)
         self.avatarImageView.kf.setImage(with: avatarUrl)
@@ -169,14 +175,27 @@ class WalletViewController: UIViewController {
         self.publicKeyLabel.text = "Public Key: " + self.pkpPublicKey
     }
     
+    
+    
     @objc
     func clickSend() {
-        self.avatarImageView.kf.setImage(with: URL(string: "https://lh3.googleusercontent.com/a/AEdFTp5G5erelSyjr5fSHPb3CWRgC8y8Q9bQPjROxgRc=s200"))
+        self.connect()
     }
+    
     
     @objc
     func clickReceive() {
-        self.avatarImageView.kf.setImage(with: URL(string: "https://lh3.googleusercontent.com/a/AEdFTp5G5erelSyjr5fSHPb3CWRgC8y8Q9bQPjROxgRc=s200"))
     }
     
+}
+
+extension WalletViewController {
+
+    func connect() {
+        let _ = litClient.connect().done { _ in
+            
+        }.catch { error in
+            print(error)
+        }
+    }
 }
