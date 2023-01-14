@@ -7,5 +7,7 @@
 
 import Foundation
 public enum LitError: Error {
-    case invalidUrl(String)
+    case INVALID_URL(String)
+    case INIT_KEYPAIR_ERROR
+    case UNSUPPORTED_CHAIN_EXCEPTION(String)
 }

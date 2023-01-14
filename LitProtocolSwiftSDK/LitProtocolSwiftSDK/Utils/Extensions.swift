@@ -22,6 +22,14 @@ extension String {
         if let url = URL(string: self) {
             return url
         }
-        throw LitError.invalidUrl(self)
+        throw LitError.INVALID_URL(self)
+    }
+   
+}
+
+extension Data {
+    // TODO: 参考lit js中 uint8arrays
+    func uint8ToString(_ baseType: String) -> String? {
+        return String.init(data: self, encoding: .utf8)
     }
 }

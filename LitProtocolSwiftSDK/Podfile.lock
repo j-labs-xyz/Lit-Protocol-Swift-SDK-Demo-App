@@ -6,7 +6,9 @@ PODS:
   - AppAuth/Core (1.6.0)
   - AppAuth/ExternalUserAgent (1.6.0):
     - AppAuth/Core
+  - BigInt (5.0.0)
   - FLAnimatedImage (1.0.17)
+  - GenericJSON (2.0.2)
   - GoogleSignIn (7.0.0):
     - AppAuth (~> 1.5)
     - GTMAppAuth (< 3.0, >= 1.3)
@@ -16,6 +18,7 @@ PODS:
     - GTMSessionFetcher/Core (< 4.0, >= 1.5)
   - GTMSessionFetcher/Core (3.0.0)
   - Kingfisher (6.3.1)
+  - Logging (1.0.0)
   - PromiseKit (6.18.1):
     - PromiseKit/CorePromise (= 6.18.1)
     - PromiseKit/Foundation (= 6.18.1)
@@ -25,7 +28,14 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.18.1):
     - PromiseKit/CorePromise
+  - secp256k1.swift (0.1.4)
   - SnapKit (5.6.0)
+  - TweetNacl (1.0.2)
+  - web3.swift (1.4.1):
+    - BigInt (~> 5.0.0)
+    - GenericJSON (~> 2.0)
+    - Logging (~> 1.0.0)
+    - secp256k1.swift (~> 0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.6.0)
@@ -34,30 +44,44 @@ DEPENDENCIES:
   - Kingfisher (= 6.3.1)
   - PromiseKit (~> 6.8)
   - SnapKit (~> 5.6.0)
+  - TweetNacl (~> 1.0.0)
+  - web3.swift
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AppAuth
+    - BigInt
     - FLAnimatedImage
+    - GenericJSON
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
     - Kingfisher
+    - Logging
     - PromiseKit
+    - secp256k1.swift
     - SnapKit
+    - TweetNacl
+    - web3.swift
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
+  BigInt: 74b4d88367b0e819d9f77393549226d36faeb0d8
   FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
+  GenericJSON: 79a840eeb77030962e8cf02a62d36bd413b67626
   GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
   GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
   GTMSessionFetcher: c1edebe64e9fb4e8f6415d018edf1fd3eac074a1
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  Logging: 9ef4ecb546ad3169398d5a723bc9bea1c46bef26
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
+  web3.swift: 82f5f5bd5b4983e155982080d4bfbfbc5e56e92a
 
-PODFILE CHECKSUM: 5ccfba092b79abec87b0f2259058ff3a595ecceb
+PODFILE CHECKSUM: 227a55b5f12a459c3134d5107f2f9c1783aaf9c4
 
 COCOAPODS: 1.11.3

@@ -15,6 +15,8 @@
 		BA211D18297167AD00C7BB26 /* LitSwiftSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D17297167AD00C7BB26 /* LitSwiftSDK.swift */; };
 		BA211D1B297176BA00C7BB26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1A297176BA00C7BB26 /* Extensions.swift */; };
 		BA211D1D29717AF900C7BB26 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1C29717AF900C7BB26 /* Error.swift */; };
+		BA211D1F297181F400C7BB26 /* SessionSigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1E297181F400C7BB26 /* SessionSigs.swift */; };
+		BA211D212972910B00C7BB26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D202972910B00C7BB26 /* Constants.swift */; };
 		BA67949B2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = BA67949A2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc */; };
 		BA6794A12965A4FF00E22F56 /* LitProtocolSwiftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; };
 		BA6794A62965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794A52965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift */; };
@@ -95,6 +97,8 @@
 		BA211D17297167AD00C7BB26 /* LitSwiftSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitSwiftSDK.swift; sourceTree = "<group>"; };
 		BA211D1A297176BA00C7BB26 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BA211D1C29717AF900C7BB26 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		BA211D1E297181F400C7BB26 /* SessionSigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSigs.swift; sourceTree = "<group>"; };
+		BA211D202972910B00C7BB26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LitProtocolSwiftSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6794992965A4FF00E22F56 /* LitProtocolSwiftSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LitProtocolSwiftSDK.h; sourceTree = "<group>"; };
 		BA67949A2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = LitProtocolSwiftSDK.docc; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			children = (
 				BA211D1129715A7700C7BB26 /* NodeClientConfig.swift */,
 				BA211D1329715F2900C7BB26 /* NodeResponse.swift */,
+				BA211D1E297181F400C7BB26 /* SessionSigs.swift */,
+				BA211D202972910B00C7BB26 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -610,8 +616,10 @@
 			files = (
 				BA211D1D29717AF900C7BB26 /* Error.swift in Sources */,
 				BA211D162971630F00C7BB26 /* Network.swift in Sources */,
+				BA211D1F297181F400C7BB26 /* SessionSigs.swift in Sources */,
 				BA6794DF2965A5EB00E22F56 /* LitClient.swift in Sources */,
 				BA67949B2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc in Sources */,
+				BA211D212972910B00C7BB26 /* Constants.swift in Sources */,
 				BA211D1429715F2900C7BB26 /* NodeResponse.swift in Sources */,
 				BA211D18297167AD00C7BB26 /* LitSwiftSDK.swift in Sources */,
 				BA211D1229715A7700C7BB26 /* NodeClientConfig.swift in Sources */,
