@@ -88,7 +88,7 @@ class LITCosmosChain: LITChainRequiredProps {
 }
 
 
-enum Chain: String {
+public enum Chain: String {
     case ethereum
     case polygon
     /// LIT_CHAINS

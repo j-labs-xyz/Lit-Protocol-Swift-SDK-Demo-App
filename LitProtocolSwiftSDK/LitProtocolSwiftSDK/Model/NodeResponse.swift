@@ -13,3 +13,25 @@ struct NodeCommandServerKeysResponse: Codable {
     let networkPublicKey: String
     let networkPublicKeySet: String
 }
+
+struct NodeShareResponse: Codable {
+    var signedData: NodeShareData?
+    var success: Bool = false
+    
+}
+struct NodeShareData: Codable {
+    var sessionSig: NodeShare?
+}
+
+struct NodeShare: Codable {
+    var dataSigned: String
+    var shareHex: String = ""
+    var localX: String
+    var localY: String
+    var publicKey: String
+    var shareIndex: Int
+    var sigName: String
+    var sigType: String
+    var signatureShare: String
+    var siweMessage: String
+}

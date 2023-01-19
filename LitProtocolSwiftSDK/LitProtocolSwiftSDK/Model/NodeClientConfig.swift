@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum LitNetwork: String {
+public enum LitNetwork: String {
     case jalapeno
     case serrano
     case localhost
     case custom
     
-    var networks: [String] {
+    public var networks: [String] {
         switch self {
         case .jalapeno:
             return [
@@ -67,7 +67,11 @@ public class LitNodeClientConfig {
     var debug: Bool
     var bootstrapUrls: [String]
     var litNetwork: LitNetwork
-    init(alertWhenUnauthorized: Bool, minNodeCount: Int, debug: Bool, bootstrapUrls: [String], litNetwork: LitNetwork) {
+    public init(alertWhenUnauthorized: Bool = true,
+                minNodeCount: Int = 6,
+                debug: Bool = true,
+                bootstrapUrls: [String] = LitNetwork.jalapeno.networks,
+                litNetwork: LitNetwork = LitNetwork.jalapeno) {
         self.alertWhenUnauthorized = alertWhenUnauthorized
         self.minNodeCount = minNodeCount
         self.debug = debug
