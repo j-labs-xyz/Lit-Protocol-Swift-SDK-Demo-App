@@ -98,7 +98,7 @@ class MintingPKPViewController: UIViewController {
         
         self.showOrHideCloseButton(show: false)
         
-        self.mintingInfoLabel.text = "init minting..."
+        self.mintingInfoLabel.text = "Starting to mint Lit PKP ..."
         
         OAuthClient.handleLoggedInToGoogle(tokenString) { [weak self] requestId, error in
             guard let `self` = self else { return }
@@ -113,7 +113,7 @@ class MintingPKPViewController: UIViewController {
     
     func requestPKP(with requestId: String) {
         
-        self.mintingInfoLabel.text = "Minting PKP with requestId: \(requestId)"
+        self.mintingInfoLabel.text = "Minting Lit PKP with requestId: \(requestId)"
 
         OAuthClient.pollRequestUntilTerminalState(with: requestId) { [weak self] result, error in
             guard let `self` = self else { return }
