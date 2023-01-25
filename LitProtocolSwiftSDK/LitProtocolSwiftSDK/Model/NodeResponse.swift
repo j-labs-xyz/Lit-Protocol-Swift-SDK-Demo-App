@@ -25,7 +25,6 @@ struct NodeShareData: Codable {
 
 struct NodeShare: Codable {
     var dataSigned: String
-    var shareHex: String = ""
     var localX: String
     var localY: String
     var publicKey: String

@@ -111,7 +111,7 @@ struct SessionRequestBody {
 }
 
 public struct JsonAuthSig {
-    let sig: String
+    public let sig: String
     let derivedVia: String
     let signedMessage: String
     let address: String

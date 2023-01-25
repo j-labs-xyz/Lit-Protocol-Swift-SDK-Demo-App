@@ -9,6 +9,8 @@ import Foundation
 import PromiseKit
 import TweetNacl
 import web3
+import Libecdsa_swift
+import secp256k1
 public class LitClient {
     
     let config: LitNodeClientConfig
@@ -75,11 +77,10 @@ public class LitClient {
         let expiration = params.expiration ?? getExpirationDate(1000 * 60 * 60 * 24)
         
         return getWalletSig(chain: params.chain, capabilities: capabilities ,switchChain: params.switchChain, expiration: expiration, sessionKeyUri: sessionKeyUrl, authNeededCallback: params.authNeededCallback).then { authSig in
-            let siweMessage = try SiweMessage(authSig.signedMessage)
+//            let siweMessage = try SiweMessage(authSig.signedMessage)
             
             
-            
-            return Promise<Any>.value([:])
+            return Promise<Any>.value(authSig)
         }
     }
     
@@ -136,26 +137,29 @@ public class LitClient {
                }
                return self.getSignSessionKeyShares(url, params: reqBody)
            }
-           
-           when(fulfilled: allPromises, concurrently: 4).done { [weak self] nodeResponses in
-               guard let `self` = self else { return }
-               
-               let signedDataList = nodeResponses.compactMap( { $0.signedData?.sessionSig })
-               
-               let sigType =  signedDataList.map { $0.sigType }.mostCommonString
-               if sigType == SigTYpe.BLS.rawValue {
-                 let _ = self.combineBlsShares(shares: signedDataList, networkPubKeySet: self.networkPubKeySet ?? "")
-               } else if sigType == SigTYpe.ECDSA.rawValue {
-                  let _ = self.combineEcdsaShares(shares: signedDataList)
-               } else {
+           return Promise<JsonAuthSig> { resolver in
+              let _ = when(fulfilled: allPromises, concurrently: 4).done ({ [weak self] nodeResponses in
+                   guard let `self` = self else {
+                       return resolver.reject(LitError.COMMON)
+                   }
                    
-               }
-               
-               
-           }.catch { error in
-               print(error)
+                   let signedDataList = nodeResponses.compactMap( { $0.signedData?.sessionSig })
+                   
+                   let sigType =  signedDataList.map { $0.sigType }.mostCommonString
+                   let siweMessage =  signedDataList.map { $0.siweMessage }.mostCommonString
+
+                   if sigType == SigTYpe.BLS.rawValue {
+                       let _ = self.combineBlsShares(shares: signedDataList, networkPubKeySet: self.networkPubKeySet ?? "")
+                   } else if sigType == SigTYpe.ECDSA.rawValue {
+                       let res = self.combineEcdsaShares(shares: signedDataList)
+                       if let r = res["r"] as? String, let s = res["s"] as? String, let recid = res["recid"] as? UInt8, let signature = self.joinSignature(r: r, v: recid, s: s) {
+                           let jsonAuthSig = JsonAuthSig(sig: signature, derivedVia: "web3.eth.personal.sign via Lit PKP", signedMessage: siweMessage ?? "", address: ethereumAddress.value, capabilities: params.resouces, algo: nil)
+                           return resolver.fulfill(jsonAuthSig)
+                       }
+                   }
+                   return resolver.reject(LitError.COMMON)
+               })
            }
-           
        }
         
         return Promise(error: LitError.INVALID_PUBLIC_KEY)
@@ -172,8 +176,10 @@ public class LitClient {
         let publicKey = shares[0].publicKey
         let dataSigned = "0x" + shares[0].dataSigned
         let validShares = shares.map { $0.signatureShare }
-        let validSharesJson = try? validShares.toJsonString() ?? ""
-        
+        let validSharesJson = try? validShares.toJsonString()
+        if let res = combine_signature(r_x, ry: r_y, shares: validSharesJson ?? "") {
+            return res
+        }
         return [:]
     }
     
@@ -295,5 +301,19 @@ public class LitClient {
         return date
     }
     
+     
+     func joinSignature(r: String, v: UInt8, s: String) -> String? {
+         guard  let rData = r.web3.hexData,  let sData = s.web3.hexData else {
+             return nil
+         }
+         var signature = rData
+         signature.append(sData)
+         if v == 1 {
+             signature.append(contentsOf: [0x1c])
+         } else {
+             signature.append(contentsOf: [0x1b])
+         }
+         return signature.web3.hexString
+     }
     
 }
