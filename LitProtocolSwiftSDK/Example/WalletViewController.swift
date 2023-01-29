@@ -82,7 +82,7 @@ class WalletViewController: UIViewController {
     
     lazy var receiveButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Receive", for: .normal)
+        button.setTitle("Balance", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 4
