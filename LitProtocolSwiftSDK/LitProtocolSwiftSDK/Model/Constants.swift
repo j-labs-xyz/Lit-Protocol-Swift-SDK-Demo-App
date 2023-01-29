@@ -16,7 +16,7 @@ var ALL_LIT_CHAINS: LITChain<LITChainRequiredProps> = {
 }()
 
 
-let LIT_CHAINS: LITChain<LITEVMChain> = [
+public let LIT_CHAINS: LITChain<LITEVMChain> = [
     .ethereum : LITEVMChain(contractAddress: "0xA54F7579fFb3F98bd8649fF02813F575f9b3d353",
                             chainId: 1,
                             type: "ERC1155",
@@ -34,7 +34,17 @@ let LIT_CHAINS: LITChain<LITEVMChain> = [
                            decimals: 18,
                            rpcUrls: ["https://polygon-rpc.com"],
                            blockExplorerUrls: ["https://explorer.matic.network"],
-                           vmType: .EVM)
+                           vmType: .EVM),
+    .mumbai: LITEVMChain(contractAddress: "0xc716950e5DEae248160109F562e1C9bF8E0CA25B",
+                         chainId: 80001,
+                         type: "ERC1155",
+                         name: "Mumbai",
+                         symbol: "MATIC",
+                         decimals: 18,
+                         rpcUrls: ["https://rpc-mumbai.maticvigil.com/v1/96bf5fa6e03d272fbd09de48d03927b95633726c"],
+                         blockExplorerUrls: ["https://mumbai.polygonscan.com"],
+                         vmType: .EVM)
+    
 ]
 
 
@@ -91,6 +101,7 @@ class LITCosmosChain: LITChainRequiredProps {
 public enum Chain: String {
     case ethereum
     case polygon
+    case mumbai
     /// LIT_CHAINS
     case solana
     case solanaDevnet
@@ -118,13 +129,13 @@ enum EitherType: String {
     case SUCCESS
 }
 
-typealias LITChain<T> = [Chain: T]
+public typealias LITChain<T> = [Chain: T]
 
-class LITChainRequiredProps {
+public class LITChainRequiredProps {
     let name: String
     let symbol: String
     let decimals: Int
-    let rpcUrls: [String]
+    public let rpcUrls: [String]
     let blockExplorerUrls: [String]
     let vmType: VMType
     init(name: String, symbol: String, decimals: Int, rpcUrls: [String], blockExplorerUrls: [String], vmType: VMType) {
@@ -137,7 +148,7 @@ class LITChainRequiredProps {
     }
 }
 
-class LITEVMChain: LITChainRequiredProps {
+public class LITEVMChain: LITChainRequiredProps {
     let contractAddress: String?
     let chainId: Int
     let type: String?

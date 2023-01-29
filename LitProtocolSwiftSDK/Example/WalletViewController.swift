@@ -11,19 +11,21 @@ import UIKit
 import GoogleSignIn
 import Kingfisher
 import LitProtocolSwiftSDK
-
+import web3
 class WalletViewController: UIViewController {
     
     let pkpEthAddress: String
     let pkpPublicKey: String
-    let profile: GIDProfileData
-
+    let profile: [String: String]
+    let auth: [String: Any]
     init(pkpEthAddress: String,
          pkpPublicKey: String,
-         profile: GIDProfileData) {
+         auth: [String: Any],
+         profile: [String: String]) {
         self.pkpEthAddress = pkpEthAddress
         self.pkpPublicKey = pkpPublicKey
         self.profile = profile
+        self.auth = auth
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -70,7 +72,7 @@ class WalletViewController: UIViewController {
     
     lazy var sendButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Connect", for: .normal)
+        button.setTitle("Send", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.backgroundColor = UIColor.black
         button.setTitleColor(.white, for: .normal)
@@ -80,7 +82,7 @@ class WalletViewController: UIViewController {
     
     lazy var receiveButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Signature", for: .normal)
+        button.setTitle("Receive", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 4
@@ -89,7 +91,7 @@ class WalletViewController: UIViewController {
         return button
     }()
     
-    var litClient: LitClient = LitClient()
+    var litClient: LitClient = LitClient(config: LitNodeClientConfig(bootstrapUrls: LitNetwork.serrano.networks, litNetwork: .serrano))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,29 +164,54 @@ class WalletViewController: UIViewController {
         
         self.sendButton.addTarget(self, action: #selector(clickSend), for: .touchUpInside)
         self.receiveButton.addTarget(self, action: #selector(clickReceive), for: .touchUpInside)
-
+        let _ = self.litClient.connect().done {  [weak self]in
+            guard let self = self else { return }
+            self.litClient.updateAuth(self.auth)
+        }
     }
     
     
     func updateUI() {
-        let avatarUrl = self.profile.imageURL(withDimension: 100)
-        self.avatarImageView.kf.setImage(with: avatarUrl)
-        self.nameLabel.text = self.profile.name
-        self.emailLabel.text = self.profile.email
+        self.avatarImageView.kf.setImage(with: URL(string:  self.profile["avatar"] ?? "")!)
+        self.nameLabel.text = self.profile["name"]
+        self.emailLabel.text = self.profile["email"]
         self.addressLabel.text = "Address: " + self.pkpEthAddress
         self.publicKeyLabel.text = "Public Key: " + self.pkpPublicKey
     }
     
-    
-    
     @objc
     func clickSend() {
-        self.connect()
+        let address = self.litClient.computeAddress(publicKey: self.pkpPublicKey)!
+        print(address)
+        self.litClient.sendPKPTransaction(toAddress: "0x9fFA98D827329941295B28B626B6513B333ebe2c",
+                                          fromAddress: address,
+                                          value: "0x0",
+                                          data: "0x00",
+                                          chain: .mumbai,
+                                          publicKey: self.pkpPublicKey,
+                                          gasPrice: "0x2e90edd000",
+                                          gasLimit: 30000.web3.hexString).done { res in
+            
+        }.catch { err in
+            print(err)
+        }
     }
     
+    lazy var web3 = EthereumHttpClient(url: URL(string: LIT_CHAINS[.mumbai]?.rpcUrls.first ?? "")!)
     
     @objc
     func clickReceive() {
+        Task {
+            do {
+                let res = try await web3.eth_getBalance(address: EthereumAddress(self.pkpEthAddress), block: EthereumBlock.Latest)
+                print(res.web3.bytes)
+                let value = UInt64(res.web3.hexString.web3.noHexPrefix, radix: 16) ?? 0
+                print("Value: \( Double(value) / pow(Double(10), Double(18)))")
+                print("Hex: \(res.web3.hexString)")
+            } catch {
+                print(error)
+            }
+        }
     }
     
 }

@@ -45,7 +45,7 @@ DEPENDENCIES:
   - PromiseKit (~> 6.8)
   - SnapKit (~> 5.6.0)
   - TweetNacl (~> 1.0.0)
-  - web3.swift
+  - "web3.swift (from `git@github.com:LevenWin/web3.swift-1.git`, commit `18c22b917815a987d0d7af4761acd7e6102e93c9`)"
 
 SPEC REPOS:
   trunk:
@@ -63,7 +63,16 @@ SPEC REPOS:
     - secp256k1.swift
     - SnapKit
     - TweetNacl
-    - web3.swift
+
+EXTERNAL SOURCES:
+  web3.swift:
+    :commit: 18c22b917815a987d0d7af4761acd7e6102e93c9
+    :git: "git@github.com:LevenWin/web3.swift-1.git"
+
+CHECKOUT OPTIONS:
+  web3.swift:
+    :commit: 18c22b917815a987d0d7af4761acd7e6102e93c9
+    :git: "git@github.com:LevenWin/web3.swift-1.git"
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
@@ -82,6 +91,6 @@ SPEC CHECKSUMS:
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
   web3.swift: 82f5f5bd5b4983e155982080d4bfbfbc5e56e92a
 
-PODFILE CHECKSUM: 227a55b5f12a459c3134d5107f2f9c1783aaf9c4
+PODFILE CHECKSUM: 1edffd678890704dd6199242b86d2036064cba56
 
 COCOAPODS: 1.11.3

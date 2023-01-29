@@ -31,6 +31,14 @@ public class LitClient {
     
     var networkPubKeySet: String?
     
+    
+    var auth: [String: Any]?
+    
+    
+    public func updateAuth(_ auth: [String: Any]) {
+        self.auth = auth
+    }
+    
     public init(config: LitNodeClientConfig = LitNodeClientConfig()) {
         self.config = config
         
@@ -59,8 +67,7 @@ public class LitClient {
         }
     }
     
-    public func getSessionSigs(_ params: GetSessionSigsProps) -> Promise<Any>  {
-        var params = params
+    public func getSessionSigs(_ params: GetSessionSigsProps) -> Promise<Any> {
         var sessionKey: SessionKeyPair
         do {
             sessionKey = try getSessionKey(params.sessionKey)
@@ -75,36 +82,63 @@ public class LitClient {
         }
         
         let expiration = params.expiration ?? getExpirationDate(1000 * 60 * 60 * 24)
-        
-        return getWalletSig(chain: params.chain, capabilities: capabilities ,switchChain: params.switchChain, expiration: expiration, sessionKeyUri: sessionKeyUrl, authNeededCallback: params.authNeededCallback).then { authSig in
-//            let siweMessage = try SiweMessage(authSig.signedMessage)
+        return getWalletSig(chain: params.chain, capabilities: capabilities ,switchChain: params.switchChain, expiration: expiration, sessionKeyUri: sessionKeyUrl, authNeededCallback: params.authNeededCallback).then { [weak self]authSig in
+            guard let self = self else { return Promise<Any>(error: LitError.COMMON)}
+            let sessionExpiration = self.getExpirationString(60 * 60 * 24)
+            let signingTemplate: [String: Any] = [
+                "sessionKey": sessionKey.publicKey,
+                "resources": params.resource,
+                "capabilities" : [authSig.toBody()],
+                "issuedAt": self.getExpirationString(0),
+                "expiration": sessionExpiration
+            ]
             
+            var signatures: [String: Any] = [:]
+            do {
+                try self.connectedNodes.forEach { node in
+                    var toSign = signingTemplate
+                    toSign["nodeAddress"] = node
+                    
+                    let keyData = sessionKey.secretKey
+                    let messageData = (try? JSONSerialization.data(withJSONObject: toSign)) ?? Data()
+                    
+                    let signature = try NaclSign.signDetached(message: messageData, secretKey: keyData.web3.hexData ?? Data()).web3.hexString.web3.noHexPrefix
+                    
+                    signatures[node] = [
+                        "sig": signature,
+                        "derivedVia" : "litSessionSignViaNacl",
+                        "signedMessage" : String(data: messageData, encoding: .utf8),
+                        "address" : sessionKey.publicKey,
+                        "algo": "ed25519"
+                    ]
+                }
+            } catch {
+                return Promise<Any>.init(error: error)
+            }
             
-            return Promise<Any>.value(authSig)
+            return Promise<Any>.value(signatures)
         }
     }
     
     
     public func getSessionKey(_ supposedSessionKey: String?) throws -> SessionKeyPair {
-        let keyPair = try NaclBox.keyPair()
+        let keyPair = try NaclSign.KeyPair.keyPair()
         if let publicKey = keyPair.publicKey.toBase16String(), let secretKey = keyPair.secretKey.toBase16String() {
             return SessionKeyPair(publicKey: publicKey, secretKey: secretKey)
         }
         throw LitError.INIT_KEYPAIR_ERROR
     }
     
+
     
    public func signSessionKey(_ params: SignSessionKeyProp) -> Promise<JsonAuthSig> {
         if self.ready == false {
             return Promise(error: LitError.LIT_NODE_CLIENT_NOT_READY_ERROR)
         }
         
-       var pkpPublicKeyData = params.pkpPublicKey.web3.hexData
-       pkpPublicKeyData = pkpPublicKeyData?.dropFirst()
-       if let pkpPublicKeyHash = pkpPublicKeyData?.web3.keccak256 {
-           let address = pkpPublicKeyHash.subdata(in: 12..<pkpPublicKeyHash.count)
-           let ethereumAddress = EthereumAddress(address.web3.hexString)
-           
+      
+       if let addressKey = self.computeAddress(publicKey: params.pkpPublicKey) {
+           let ethereumAddress = EthereumAddress(addressKey)
            let expiration = (params.expiration ?? getExpirationDate(24 * 60 * 60 * 1000))
            let nonce = String.random(minimumLength: 96, maximumLength: 128)
            var siweMessage: SiweMessage!
@@ -146,28 +180,30 @@ public class LitClient {
                    let signedDataList = nodeResponses.compactMap( { $0.signedData?.sessionSig })
                    
                    let sigType =  signedDataList.map { $0.sigType }.mostCommonString
-                   let siweMessage =  signedDataList.map { $0.siweMessage }.mostCommonString
+                   let siweMessage =  signedDataList.compactMap { $0.siweMessage }.mostCommonString ?? ""
 
                    if sigType == SigTYpe.BLS.rawValue {
                        let _ = self.combineBlsShares(shares: signedDataList, networkPubKeySet: self.networkPubKeySet ?? "")
                    } else if sigType == SigTYpe.ECDSA.rawValue {
                        let res = self.combineEcdsaShares(shares: signedDataList)
                        if let r = res["r"] as? String, let s = res["s"] as? String, let recid = res["recid"] as? UInt8, let signature = self.joinSignature(r: r, v: recid, s: s) {
-                           let jsonAuthSig = JsonAuthSig(sig: signature, derivedVia: "web3.eth.personal.sign via Lit PKP", signedMessage: siweMessage ?? "", address: ethereumAddress.value, capabilities: params.resouces, algo: nil)
+                           let jsonAuthSig = JsonAuthSig(sig: signature, derivedVia: "web3.eth.personal.sign via Lit PKP", signedMessage: siweMessage, address: ethereumAddress.value)
                            return resolver.fulfill(jsonAuthSig)
                        }
                    }
                    return resolver.reject(LitError.COMMON)
-               })
+              }).catch { error in
+                  return resolver.reject(error)
+              }
            }
        }
         
         return Promise(error: LitError.INVALID_PUBLIC_KEY)
     }
     
-    func combineBlsShares(shares: [NodeShare], networkPubKeySet: String) -> String {
+    func combineBlsShares(shares: [NodeShare], networkPubKeySet: String) -> [String: Any] {
         
-        return ""
+        return [:]
     }
     
     func combineEcdsaShares(shares: [NodeShare]) -> [String: Any] {
@@ -242,15 +278,15 @@ public class LitClient {
     }
     
     func checkAndSignEVMAuthMessage() -> Promise<JsonAuthSig> {
-        return .value(JsonAuthSig(sig: "", derivedVia: "", signedMessage: "", address: "", capabilities: [], algo: []))
+        return .value(JsonAuthSig(sig: "", derivedVia: "", signedMessage: "", address: ""))
     }
     
     func checkAndSignSolAuthMessage() -> Promise<JsonAuthSig> {
-        return .value(JsonAuthSig(sig: "", derivedVia: "", signedMessage: "", address: "", capabilities: [], algo: []))
+        return .value(JsonAuthSig(sig: "", derivedVia: "", signedMessage: "", address: ""))
     }
     
     func checkAndSignCosmosAuthMessage() -> Promise<JsonAuthSig> {
-        return .value(JsonAuthSig(sig: "", derivedVia: "", signedMessage: "", address: "", capabilities: [], algo: []))
+        return .value(JsonAuthSig(sig: "", derivedVia: "", signedMessage: "", address: ""))
     }
     
     func handshakeWithNode(_ url: String) -> Promise<NodeCommandServerKeysResponse> {
@@ -269,7 +305,7 @@ public class LitClient {
 
 }
 
- extension LitClient {
+ public extension LitClient {
     func getSessionKeyUri(_ publicKey: String) -> String {
         return LIT_SESSION_KEY_URI + publicKey
     }
@@ -301,6 +337,15 @@ public class LitClient {
         return date
     }
     
+     public func computeAddress(publicKey: String) -> String? {
+         var pkpPublicKeyData = publicKey.web3.hexData
+         pkpPublicKeyData = pkpPublicKeyData?.dropFirst()
+         if let pkpPublicKeyHash = pkpPublicKeyData?.web3.keccak256 {
+             let address = pkpPublicKeyHash.subdata(in: 12..<pkpPublicKeyHash.count)
+             return address.web3.hexString
+         }
+         return nil
+     }
      
      func joinSignature(r: String, v: UInt8, s: String) -> String? {
          guard  let rData = r.web3.hexData,  let sData = s.web3.hexData else {

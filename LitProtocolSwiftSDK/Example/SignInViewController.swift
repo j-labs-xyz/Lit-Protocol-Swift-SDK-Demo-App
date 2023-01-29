@@ -90,24 +90,59 @@ class SignInViewController: UIViewController {
             make.top.equalTo(self.googleLogo.snp.bottom).offset(0)
             make.bottom.equalTo(siginButton.snp.top).offset(-20)
         }
+        pkpEthAddress = UserDefaults.standard.string(forKey: "pkpEthAddress") ?? ""
+        signature = UserDefaults.standard.string(forKey: "signature") ?? ""
+        pkpPublicKey = UserDefaults.standard.string(forKey: "pkpPublicKey") ?? ""
+        tokenString = UserDefaults.standard.string(forKey: "tokenString") ?? ""
     }
     
-    var pkpEthAddress: String = ""
-    var signature: String = ""
-    var pkpPublicKey: String = ""
+    var pkpEthAddress: String = "" {
+        didSet {
+            UserDefaults.standard.set(pkpEthAddress, forKey: "pkpEthAddress")
+        }
+    }
+    var signature: String = "" {
+        didSet {
+            UserDefaults.standard.set(signature, forKey: "signature")
+        }
+    }
+    var pkpPublicKey: String = "" {
+        didSet {
+            UserDefaults.standard.set(pkpPublicKey, forKey: "pkpPublicKey")
+        }
+    }
     
-    var tokenString: String = ""
+    var tokenString: String = "" {
+        didSet {
+            UserDefaults.standard.set(tokenString, forKey: "tokenString")
+        }
+    }
+    
+    var refreshKey = false
+    
+    var profileData: GIDProfileData? {
+        didSet {
+            let info: [String: Any] = [
+                "email" : profileData?.email ?? "",
+                "name" :  profileData?.name ?? "",
+                "avatar": profileData?.imageURL(withDimension: 300)?.absoluteString ?? ""
+            ]
+            UserDefaults.standard.set(info, forKey: "profileData")
+        }
+    }
+    
 
     @objc
     func gotoSignin() {
-        if pkpPublicKey != "" {
-            self.getSignature()
+        if self.signature != "" && self.refreshKey == false {
+            self.gotoWallet()
         } else {
             self.infoLabel.text = "Get Google Auth..."
             GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] res, err in
                 guard let `self` = self else { return }
                 if let profile = res?.user.profile, let tokenString = res?.user.idToken?.tokenString {
                     print(tokenString)
+                    self.profileData = profile
                     self.tokenString = tokenString
                     self.infoLabel.text = "Get PKP..."
 
@@ -119,7 +154,6 @@ class SignInViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     var litClient: LitClient = LitClient(config: LitNodeClientConfig(bootstrapUrls: LitNetwork.serrano.networks, litNetwork: .serrano))
@@ -130,9 +164,10 @@ class SignInViewController: UIViewController {
             let props = SignSessionKeyProp(sessionKey: url, authMethods: [AuthMethod(authMethodType: 6, accessToken: self.tokenString)], pkpPublicKey: self.pkpPublicKey, expiration: expiration, resouces: resources ?? [], chain: chain)
             return self.litClient.signSessionKey(props)
         }
+//        https://developer.litprotocol.com/SDK/Explanation/WalletSigs/sessionSigs
         let props = GetSessionSigsProps(expiration: Date(timeIntervalSinceNow: 1000 * 60 * 60 * 24),
-                                        chain: .ethereum,
-                                        resource: ["litEncryptionCondition://*"],
+                                        chain: .mumbai,
+                                        resource: ["litEncryptionCondition://*", "litSigningCondition://*", "litPKP://*", "litRLI://*", "litAction://*"],
                                         switchChain: false,
                                         authNeededCallback: authNeededCallback)
         self.infoLabel.text = """
@@ -147,26 +182,32 @@ class SignInViewController: UIViewController {
                 return self.litClient.getSessionSigs(props)
             }.done { [weak self] res in
                 guard let self = self else { return }
-                if let auth = res as? JsonAuthSig {
-                    self.signature = auth.sig
-                    self.infoLabel.text =  """
-        pkpPublicKey: \(self.pkpPublicKey)
-        pkpEthAddress: \(self.pkpEthAddress)
-        Signature: \(auth.sig)
-        """
+                if let data = try? JSONSerialization.data(withJSONObject: res) {
+                    self.signature = String(data: data, encoding: .utf8) ?? ""
                 }
+                self.gotoWallet()
+                self.infoLabel.text =  """
+    pkpPublicKey: \(self.pkpPublicKey)
+    pkpEthAddress: \(self.pkpEthAddress)
+    Signature: \(self.signature)
+    """
+            }.catch { err in
+                
             }
         } else {
             let _ = self.litClient.getSessionSigs(props).done { [weak self] res in
                 guard let self = self else { return }
-                if let auth = res as? JsonAuthSig {
-                    self.signature = auth.sig
-                    self.infoLabel.text =  """
-        pkpPublicKey: \(self.pkpPublicKey)
-        pkpEthAddress: \(self.pkpEthAddress)
-        Signature: \(auth.sig)
-        """
+                if let data = try? JSONSerialization.data(withJSONObject: res) {
+                    self.signature = String(data: data, encoding: .utf8) ?? ""
                 }
+                self.gotoWallet()
+                self.infoLabel.text =  """
+    pkpPublicKey: \(self.pkpPublicKey)
+    pkpEthAddress: \(self.pkpEthAddress)
+    Signature: \(self.signature)
+    """
+            }.catch { err in
+                
             }
         }
         
@@ -184,11 +225,16 @@ class SignInViewController: UIViewController {
         """
         self.getSignature()
 
-//        let vc = WalletViewController(pkpEthAddress: pkpEthAddress, pkpPublicKey: pkpPublicKey, profile: profile)
-//
-//        if let window =  (UIApplication.shared.delegate as? AppDelegate)?.window {
-//            window.rootViewController = vc
-//        }
+
     }
     
+    func gotoWallet() {
+        let auth = try? JSONSerialization.jsonObject(with: self.signature.data(using: .utf8) ?? Data())
+        let profile = UserDefaults.standard.value(forKey: "profileData") as? [String: String] ?? [:]
+        let vc = WalletViewController(pkpEthAddress: pkpEthAddress, pkpPublicKey: pkpPublicKey, auth: auth as? [String: Any] ?? [:] ,profile: profile)
+    
+        if let window =  (UIApplication.shared.delegate as? AppDelegate)?.window {
+            window.rootViewController = vc
+        }
+    }
 }

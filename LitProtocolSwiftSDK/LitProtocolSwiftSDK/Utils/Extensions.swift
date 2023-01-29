@@ -18,6 +18,7 @@ extension Collection where Element == String {
     }
 }
 
+
 extension String {
     func asUrl() throws -> URL {
         if let url = URL(string: self) {
@@ -86,3 +87,5 @@ extension Data {
     }
     
 }
+
+

@@ -53,6 +53,15 @@ public struct AuthMethod {
         self.authMethodType = authMethodType
         self.accessToken = accessToken
     }
+    
+    func toBody() -> [String: Any] {
+        return [
+            "authMethodType": authMethodType,
+            "accessToken": accessToken
+        ]
+        
+    }
+    
 }
 
 public struct SignSessionKeyProp {
@@ -115,25 +124,21 @@ public struct JsonAuthSig {
     let derivedVia: String
     let signedMessage: String
     let address: String
-    let capabilities: [Any]?
-    let algo: [Any]?
-    func toBody() -> [String: Any] {
-        return [
+    public func toBody() -> [String: Any] {
+        let p: [String: Any] = [
             "sig" : sig,
             "derivedVia" : derivedVia,
             "signedMessage" : signedMessage,
-            "address" : address,
-            "capabilities": capabilities ?? [],
-            "algo": algo ?? []
+            "address" : address
+
         ]
+        return p
     }
-    public init(sig: String, derivedVia: String, signedMessage: String, address: String, capabilities: [Any]?, algo: [Any]?) {
+    public init(sig: String, derivedVia: String, signedMessage: String, address: String) {
         self.sig = sig
         self.derivedVia = derivedVia
         self.signedMessage = signedMessage
         self.address = address
-        self.capabilities = capabilities
-        self.algo = algo
     }
     
 }

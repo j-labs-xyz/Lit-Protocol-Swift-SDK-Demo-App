@@ -35,6 +35,8 @@
 		BA6794DA2965A58A00E22F56 /* LitOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794D92965A58A00E22F56 /* LitOAuthClient.swift */; };
 		BA6794DF2965A5EB00E22F56 /* LitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794DE2965A5EB00E22F56 /* LitClient.swift */; };
 		BA6794F32965BE3F00E22F56 /* LitProtocolSwiftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; };
+		BA8592DF2983768A00EEFFEB /* LitClient-executeJs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8592DE2983768A00EEFFEB /* LitClient-executeJs.swift */; };
+		BA8592E12983869700EEFFEB /* LitClient-transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8592E02983869700EEFFEB /* LitClient-transaction.swift */; };
 		BA8FD5742965BE9E008F687C /* LitProtocolSwiftSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA8FD5762966DF17008F687C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8FD5752966DF17008F687C /* SplashViewController.swift */; };
 		BA8FD5782966DFBB008F687C /* logo_gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA8FD5772966DFBB008F687C /* logo_gif.gif */; };
@@ -152,6 +154,8 @@
 		BA6794CF2965A57200E22F56 /* LitOAuthPKPSignUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LitOAuthPKPSignUp.h; sourceTree = "<group>"; };
 		BA6794D92965A58A00E22F56 /* LitOAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitOAuthClient.swift; sourceTree = "<group>"; };
 		BA6794DE2965A5EB00E22F56 /* LitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LitClient.swift; sourceTree = "<group>"; };
+		BA8592DE2983768A00EEFFEB /* LitClient-executeJs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LitClient-executeJs.swift"; sourceTree = "<group>"; };
+		BA8592E02983869700EEFFEB /* LitClient-transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LitClient-transaction.swift"; sourceTree = "<group>"; };
 		BA8FD5752966DF17008F687C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		BA8FD5772966DFBB008F687C /* logo_gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_gif.gif; sourceTree = "<group>"; };
 		BA8FD57A2966F14F008F687C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -348,6 +352,8 @@
 			isa = PBXGroup;
 			children = (
 				BA6794DE2965A5EB00E22F56 /* LitClient.swift */,
+				BA8592DE2983768A00EEFFEB /* LitClient-executeJs.swift */,
+				BA8592E02983869700EEFFEB /* LitClient-transaction.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -737,11 +743,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA211D1D29717AF900C7BB26 /* Error.swift in Sources */,
+				BA8592E12983869700EEFFEB /* LitClient-transaction.swift in Sources */,
 				BA211D162971630F00C7BB26 /* Network.swift in Sources */,
 				BA211D1F297181F400C7BB26 /* SessionSigs.swift in Sources */,
 				BA6794DF2965A5EB00E22F56 /* LitClient.swift in Sources */,
 				BA67949B2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc in Sources */,
 				BA211D212972910B00C7BB26 /* Constants.swift in Sources */,
+				BA8592DF2983768A00EEFFEB /* LitClient-executeJs.swift in Sources */,
 				BA211D1429715F2900C7BB26 /* NodeResponse.swift in Sources */,
 				BA211D18297167AD00C7BB26 /* LitSwiftSDK.swift in Sources */,
 				BA211D1229715A7700C7BB26 /* NodeClientConfig.swift in Sources */,

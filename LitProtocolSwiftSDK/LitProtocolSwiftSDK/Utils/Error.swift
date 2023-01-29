@@ -12,6 +12,8 @@ public enum LitError: Error {
     case UNSUPPORTED_CHAIN_EXCEPTION(String)
     case LIT_NODE_CLIENT_NOT_READY_ERROR
     case INVALID_PUBLIC_KEY
+    case INVALID_CHAIN
     
+    case unexpectedReturnValue
     case COMMON
 }

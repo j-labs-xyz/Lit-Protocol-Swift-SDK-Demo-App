@@ -15,10 +15,16 @@ struct NodeCommandServerKeysResponse: Codable {
 }
 
 struct NodeShareResponse: Codable {
+    var decryptedData: NodeDecryptedData?
     var signedData: NodeShareData?
+    var response: String?
     var success: Bool = false
-    
+    var logs: String?
 }
+
+struct NodeDecryptedData: Codable {}
+
+
 struct NodeShareData: Codable {
     var sessionSig: NodeShare?
 }
@@ -32,5 +38,5 @@ struct NodeShare: Codable {
     var sigName: String
     var sigType: String
     var signatureShare: String
-    var siweMessage: String
+    var siweMessage: String?
 }
