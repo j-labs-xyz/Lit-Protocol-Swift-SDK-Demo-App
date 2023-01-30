@@ -13,19 +13,10 @@ import Kingfisher
 import LitProtocolSwiftSDK
 import web3
 class WalletViewController: UIViewController {
-    
-    let pkpEthAddress: String
-    let pkpPublicKey: String
-    let profile: [String: String]
-    let auth: [String: Any]
-    init(pkpEthAddress: String,
-         pkpPublicKey: String,
-         auth: [String: Any],
-         profile: [String: String]) {
-        self.pkpEthAddress = pkpEthAddress
-        self.pkpPublicKey = pkpPublicKey
-        self.profile = profile
-        self.auth = auth
+
+    let wallet: WalletModel
+    init(wallet: WalletModel) {
+        self.wallet = wallet
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,19 +45,12 @@ class WalletViewController: UIViewController {
         return label
     }()
     
-    lazy var addressLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        return label
-    }()
     
-    lazy var publicKeyLabel: UILabel = {
+    lazy var balanceLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 45, weight: .heavy)
         return label
     }()
     
@@ -82,7 +66,7 @@ class WalletViewController: UIViewController {
     
     lazy var receiveButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Balance", for: .normal)
+        button.setTitle("Receive", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 4
@@ -91,8 +75,8 @@ class WalletViewController: UIViewController {
         return button
     }()
     
-    var litClient: LitClient = LitClient(config: LitNodeClientConfig(bootstrapUrls: LitNetwork.serrano.networks, litNetwork: .serrano))
-
+    lazy var sendView = ValueSendView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
@@ -100,13 +84,15 @@ class WalletViewController: UIViewController {
     }
     
     func initUI() {
+        self.title = "Wallet"
         self.view.backgroundColor = .white
         self.view.addSubview(self.avatarImageView)
         self.view.addSubview(self.nameLabel)
         self.view.addSubview(self.emailLabel)
+
         self.avatarImageView.snp.makeConstraints { make in
             make.left.equalTo(16)
-            make.top.equalTo(30 + UIApplication.shared.statusBarFrame.height)
+            make.top.equalTo(safeTopHeight + 44 + 30)
             make.size.equalTo(80)
         }
         self.avatarImageView.layer.cornerRadius = 40
@@ -133,18 +119,23 @@ class WalletViewController: UIViewController {
             make.height.equalTo(0.5)
         }
         
-        self.view.addSubview(self.addressLabel)
-        self.view.addSubview(self.publicKeyLabel)
+        let balanceTitleLabel = UILabel()
+        balanceTitleLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        balanceTitleLabel.text = "Balance:"
+        
+        self.view.addSubview(balanceTitleLabel)
+        self.view.addSubview(self.balanceLabel)
 
-        self.addressLabel.snp.makeConstraints { make in
+        balanceTitleLabel.snp.makeConstraints { make in
             make.left.equalTo(avatarImageView)
-            make.top.equalTo(profileLineV.snp.bottom).offset(14)
+            make.top.equalTo(profileLineV.snp.bottom).offset(20)
             make.right.equalTo(-16)
         }
         
-        self.publicKeyLabel.snp.makeConstraints { make in
+        self.balanceLabel.text = "0"
+        self.balanceLabel.snp.makeConstraints { make in
             make.left.equalTo(avatarImageView)
-            make.top.equalTo(addressLabel.snp.bottom).offset(8)
+            make.top.equalTo(balanceTitleLabel.snp.bottom).offset(10)
             make.right.equalTo(-16)
         }
          
@@ -162,67 +153,49 @@ class WalletViewController: UIViewController {
             make.height.equalTo(50)
         }
         
+        self.view.addSubview(self.sendView)
+        self.sendView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(self.view.snp.bottom)
+            make.height.equalTo(50)
+        }
+        
         self.sendButton.addTarget(self, action: #selector(clickSend), for: .touchUpInside)
         self.receiveButton.addTarget(self, action: #selector(clickReceive), for: .touchUpInside)
-        let _ = self.litClient.connect().done {  [weak self]in
-            guard let self = self else { return }
-            self.litClient.updateAuth(self.auth)
-        }
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.retriveBalance()
+    }
     
     func updateUI() {
-        self.avatarImageView.kf.setImage(with: URL(string:  self.profile["avatar"] ?? "")!)
-        self.nameLabel.text = self.profile["name"]
-        self.emailLabel.text = self.profile["email"]
-        self.addressLabel.text = "Address: " + self.pkpEthAddress
-        self.publicKeyLabel.text = "Public Key: " + self.pkpPublicKey
+        self.avatarImageView.kf.setImage(with: URL(string:  self.wallet.userInfo?.avatar ?? "")!)
+        self.nameLabel.text = self.wallet.userInfo?.name
+        self.emailLabel.text = self.wallet.userInfo?.email
     }
     
     @objc
     func clickSend() {
-        let address = self.litClient.computeAddress(publicKey: self.pkpPublicKey)!
-        print(address)
-        self.litClient.sendPKPTransaction(toAddress: "0x9fFA98D827329941295B28B626B6513B333ebe2c",
-                                          fromAddress: address,
-                                          value: "0x0",
-                                          data: "0x00",
-                                          chain: .mumbai,
-                                          publicKey: self.pkpPublicKey,
-                                          gasPrice: "0x2e90edd000",
-                                          gasLimit: 30000.web3.hexString).done { res in
-            
-        }.catch { err in
-            print(err)
-        }
+        let vc = WalleteSendViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    lazy var web3 = EthereumHttpClient(url: URL(string: LIT_CHAINS[.mumbai]?.rpcUrls.first ?? "")!)
     
     @objc
     func clickReceive() {
-        Task {
-            do {
-                let res = try await web3.eth_getBalance(address: EthereumAddress(self.pkpEthAddress), block: EthereumBlock.Latest)
-                print(res.web3.bytes)
-                let value = UInt64(res.web3.hexString.web3.noHexPrefix, radix: 16) ?? 0
-                print("Value: \( Double(value) / pow(Double(10), Double(18)))")
-                print("Hex: \(res.web3.hexString)")
-            } catch {
-                print(error)
-            }
+        self.navigationController?.pushViewController(WalletAddressViewController(), animated: true)
+    }
+    
+    func retriveBalance() {
+        if let balance = WalletManager.shared.currentWallet?.balance {
+            self.balanceLabel.text = balance.str_6f
+        }
+        let _ = WalletManager.shared.getBalance().done { [weak self]balance in
+            guard let self = self else { return }
+            self.balanceLabel.text = (balance).str_6f
         }
     }
     
-}
-
-extension WalletViewController {
-
-    func connect() {
-        let _ = litClient.connect().done { _ in
-            
-        }.catch { error in
-            print(error)
-        }
-    }
 }

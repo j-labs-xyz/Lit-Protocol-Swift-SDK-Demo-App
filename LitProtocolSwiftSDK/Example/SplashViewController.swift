@@ -35,10 +35,15 @@ class SplashViewController: UIViewController {
         }
         logoImageView.startAnimating()
     }
-    
+    var needRefresh: Bool = false
     func gotoHomeVC() {
         if let window =  (UIApplication.shared.delegate as? AppDelegate)?.window {
-            window.rootViewController = SignInViewController()
+            if needRefresh || WalletManager.shared.currentWallet == nil {
+                window.rootViewController = SignInViewController()
+            } else if let wallet = WalletManager.shared.currentWallet {
+                let vc = WalletViewController(wallet: wallet)
+                window.rootViewController = UINavigationController(rootViewController: vc)
+            }
         }
     }
     

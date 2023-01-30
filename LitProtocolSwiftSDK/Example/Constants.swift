@@ -13,3 +13,8 @@ let RELAY_SERVER = "http://localhost:3001/"
 var safeBottomHeight: CGFloat {
     return UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
 }
+
+
+var safeTopHeight: CGFloat {
+    return UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0
+}

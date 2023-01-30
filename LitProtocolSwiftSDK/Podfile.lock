@@ -17,8 +17,150 @@ PODS:
     - AppAuth/Core (~> 1.6)
     - GTMSessionFetcher/Core (< 4.0, >= 1.5)
   - GTMSessionFetcher/Core (3.0.0)
+  - HandyJSON (5.0.2)
+  - JKCategories (1.9.3):
+    - JKCategories/CoreData (= 1.9.3)
+    - JKCategories/CoreLocation (= 1.9.3)
+    - JKCategories/Foundation (= 1.9.3)
+    - JKCategories/MapKit (= 1.9.3)
+    - JKCategories/QuartzCore (= 1.9.3)
+    - JKCategories/UIKit (= 1.9.3)
+  - JKCategories/CoreData (1.9.3):
+    - JKCategories/CoreData/NSFetchRequest (= 1.9.3)
+    - JKCategories/CoreData/NSManagedObject (= 1.9.3)
+    - JKCategories/CoreData/NSManagedObjectContext (= 1.9.3)
+  - JKCategories/CoreData/NSFetchRequest (1.9.3)
+  - JKCategories/CoreData/NSManagedObject (1.9.3):
+    - JKCategories/CoreData/NSManagedObjectContext
+  - JKCategories/CoreData/NSManagedObjectContext (1.9.3):
+    - JKCategories/CoreData/NSFetchRequest
+  - JKCategories/CoreLocation (1.9.3):
+    - JKCategories/CoreLocation/CLLocation (= 1.9.3)
+  - JKCategories/CoreLocation/CLLocation (1.9.3)
+  - JKCategories/Foundation (1.9.3):
+    - JKCategories/Foundation/NSArray (= 1.9.3)
+    - JKCategories/Foundation/NSBundle (= 1.9.3)
+    - JKCategories/Foundation/NSData (= 1.9.3)
+    - JKCategories/Foundation/NSDate (= 1.9.3)
+    - JKCategories/Foundation/NSDateFormatter (= 1.9.3)
+    - JKCategories/Foundation/NSDictionary (= 1.9.3)
+    - JKCategories/Foundation/NSException (= 1.9.3)
+    - JKCategories/Foundation/NSFileHandle (= 1.9.3)
+    - JKCategories/Foundation/NSFileManager (= 1.9.3)
+    - JKCategories/Foundation/NSHTTPCookieStorage (= 1.9.3)
+    - JKCategories/Foundation/NSIndexPath (= 1.9.3)
+    - JKCategories/Foundation/NSInvocation (= 1.9.3)
+    - JKCategories/Foundation/NSNotificationCenter (= 1.9.3)
+    - JKCategories/Foundation/NSNumber (= 1.9.3)
+    - JKCategories/Foundation/NSObject (= 1.9.3)
+    - JKCategories/Foundation/NSRunLoop (= 1.9.3)
+    - JKCategories/Foundation/NSSet (= 1.9.3)
+    - JKCategories/Foundation/NSString (= 1.9.3)
+    - JKCategories/Foundation/NSTimer (= 1.9.3)
+    - JKCategories/Foundation/NSURL (= 1.9.3)
+    - JKCategories/Foundation/NSURLConnection (= 1.9.3)
+    - JKCategories/Foundation/NSURLRequest (= 1.9.3)
+    - JKCategories/Foundation/NSURLSession (= 1.9.3)
+    - JKCategories/Foundation/NSUserDefaults (= 1.9.3)
+  - JKCategories/Foundation/NSArray (1.9.3)
+  - JKCategories/Foundation/NSBundle (1.9.3)
+  - JKCategories/Foundation/NSData (1.9.3)
+  - JKCategories/Foundation/NSDate (1.9.3)
+  - JKCategories/Foundation/NSDateFormatter (1.9.3)
+  - JKCategories/Foundation/NSDictionary (1.9.3)
+  - JKCategories/Foundation/NSException (1.9.3)
+  - JKCategories/Foundation/NSFileHandle (1.9.3)
+  - JKCategories/Foundation/NSFileManager (1.9.3)
+  - JKCategories/Foundation/NSHTTPCookieStorage (1.9.3)
+  - JKCategories/Foundation/NSIndexPath (1.9.3)
+  - JKCategories/Foundation/NSInvocation (1.9.3)
+  - JKCategories/Foundation/NSNotificationCenter (1.9.3)
+  - JKCategories/Foundation/NSNumber (1.9.3)
+  - JKCategories/Foundation/NSObject (1.9.3)
+  - JKCategories/Foundation/NSRunLoop (1.9.3)
+  - JKCategories/Foundation/NSSet (1.9.3)
+  - JKCategories/Foundation/NSString (1.9.3):
+    - JKCategories/Foundation/NSData
+  - JKCategories/Foundation/NSTimer (1.9.3)
+  - JKCategories/Foundation/NSURL (1.9.3)
+  - JKCategories/Foundation/NSURLConnection (1.9.3)
+  - JKCategories/Foundation/NSURLRequest (1.9.3)
+  - JKCategories/Foundation/NSURLSession (1.9.3)
+  - JKCategories/Foundation/NSUserDefaults (1.9.3)
+  - JKCategories/MapKit (1.9.3):
+    - JKCategories/MapKit/MKMapView (= 1.9.3)
+  - JKCategories/MapKit/MKMapView (1.9.3)
+  - JKCategories/QuartzCore (1.9.3):
+    - JKCategories/QuartzCore/CAAnimation (= 1.9.3)
+    - JKCategories/QuartzCore/CALayer (= 1.9.3)
+    - JKCategories/QuartzCore/CAMediaTimingFunction (= 1.9.3)
+    - JKCategories/QuartzCore/CAShapeLayer (= 1.9.3)
+    - JKCategories/QuartzCore/CATransaction (= 1.9.3)
+  - JKCategories/QuartzCore/CAAnimation (1.9.3)
+  - JKCategories/QuartzCore/CALayer (1.9.3)
+  - JKCategories/QuartzCore/CAMediaTimingFunction (1.9.3)
+  - JKCategories/QuartzCore/CAShapeLayer (1.9.3)
+  - JKCategories/QuartzCore/CATransaction (1.9.3)
+  - JKCategories/UIKit (1.9.3):
+    - JKCategories/UIKit/UIApplication (= 1.9.3)
+    - JKCategories/UIKit/UIBarButtonItem (= 1.9.3)
+    - JKCategories/UIKit/UIBezierPath (= 1.9.3)
+    - JKCategories/UIKit/UIButton (= 1.9.3)
+    - JKCategories/UIKit/UIColor (= 1.9.3)
+    - JKCategories/UIKit/UIControl (= 1.9.3)
+    - JKCategories/UIKit/UIDevice (= 1.9.3)
+    - JKCategories/UIKit/UIFont (= 1.9.3)
+    - JKCategories/UIKit/UIImage (= 1.9.3)
+    - JKCategories/UIKit/UIImageView (= 1.9.3)
+    - JKCategories/UIKit/UILable (= 1.9.3)
+    - JKCategories/UIKit/UINavigationBar (= 1.9.3)
+    - JKCategories/UIKit/UINavigationController (= 1.9.3)
+    - JKCategories/UIKit/UINavigationItem (= 1.9.3)
+    - JKCategories/UIKit/UIPopoverController (= 1.9.3)
+    - JKCategories/UIKit/UIResponder (= 1.9.3)
+    - JKCategories/UIKit/UIScreen (= 1.9.3)
+    - JKCategories/UIKit/UIScrollView (= 1.9.3)
+    - JKCategories/UIKit/UISearchBar (= 1.9.3)
+    - JKCategories/UIKit/UISplitViewController (= 1.9.3)
+    - JKCategories/UIKit/UITableView (= 1.9.3)
+    - JKCategories/UIKit/UITableViewCell (= 1.9.3)
+    - JKCategories/UIKit/UITextField (= 1.9.3)
+    - JKCategories/UIKit/UITextView (= 1.9.3)
+    - JKCategories/UIKit/UIView (= 1.9.3)
+    - JKCategories/UIKit/UIViewController (= 1.9.3)
+    - JKCategories/UIKit/UIWindow (= 1.9.3)
+  - JKCategories/UIKit/UIApplication (1.9.3)
+  - JKCategories/UIKit/UIBarButtonItem (1.9.3)
+  - JKCategories/UIKit/UIBezierPath (1.9.3)
+  - JKCategories/UIKit/UIButton (1.9.3)
+  - JKCategories/UIKit/UIColor (1.9.3)
+  - JKCategories/UIKit/UIControl (1.9.3)
+  - JKCategories/UIKit/UIDevice (1.9.3)
+  - JKCategories/UIKit/UIFont (1.9.3)
+  - JKCategories/UIKit/UIImage (1.9.3)
+  - JKCategories/UIKit/UIImageView (1.9.3)
+  - JKCategories/UIKit/UILable (1.9.3)
+  - JKCategories/UIKit/UINavigationBar (1.9.3)
+  - JKCategories/UIKit/UINavigationController (1.9.3)
+  - JKCategories/UIKit/UINavigationItem (1.9.3)
+  - JKCategories/UIKit/UIPopoverController (1.9.3)
+  - JKCategories/UIKit/UIResponder (1.9.3)
+  - JKCategories/UIKit/UIScreen (1.9.3)
+  - JKCategories/UIKit/UIScrollView (1.9.3)
+  - JKCategories/UIKit/UISearchBar (1.9.3)
+  - JKCategories/UIKit/UISplitViewController (1.9.3)
+  - JKCategories/UIKit/UITableView (1.9.3)
+  - JKCategories/UIKit/UITableViewCell (1.9.3)
+  - JKCategories/UIKit/UITextField (1.9.3)
+  - JKCategories/UIKit/UITextView (1.9.3)
+  - JKCategories/UIKit/UIView (1.9.3)
+  - JKCategories/UIKit/UIViewController (1.9.3)
+  - JKCategories/UIKit/UIWindow (1.9.3)
   - Kingfisher (6.3.1)
   - Logging (1.0.0)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
   - PromiseKit (6.18.1):
     - PromiseKit/CorePromise (= 6.18.1)
     - PromiseKit/Foundation (= 6.18.1)
@@ -30,6 +172,32 @@ PODS:
     - PromiseKit/CorePromise
   - secp256k1.swift (0.1.4)
   - SnapKit (5.6.0)
+  - SwifterSwift (5.2.0):
+    - SwifterSwift/AppKit (= 5.2.0)
+    - SwifterSwift/CoreAnimation (= 5.2.0)
+    - SwifterSwift/CoreGraphics (= 5.2.0)
+    - SwifterSwift/CoreLocation (= 5.2.0)
+    - SwifterSwift/Dispatch (= 5.2.0)
+    - SwifterSwift/Foundation (= 5.2.0)
+    - SwifterSwift/MapKit (= 5.2.0)
+    - SwifterSwift/SceneKit (= 5.2.0)
+    - SwifterSwift/SpriteKit (= 5.2.0)
+    - SwifterSwift/StoreKit (= 5.2.0)
+    - SwifterSwift/SwiftStdlib (= 5.2.0)
+    - SwifterSwift/UIKit (= 5.2.0)
+  - SwifterSwift/AppKit (5.2.0)
+  - SwifterSwift/CoreAnimation (5.2.0)
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/CoreLocation (5.2.0)
+  - SwifterSwift/Dispatch (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/MapKit (5.2.0)
+  - SwifterSwift/SceneKit (5.2.0)
+  - SwifterSwift/SpriteKit (5.2.0)
+  - SwifterSwift/StoreKit (5.2.0)
+  - SwifterSwift/SwiftStdlib (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
+  - Toast-Swift (5.0.1)
   - TweetNacl (1.0.2)
   - web3.swift (1.4.1):
     - BigInt (~> 5.0.0)
@@ -41,11 +209,16 @@ DEPENDENCIES:
   - Alamofire (~> 5.6.0)
   - FLAnimatedImage (~> 1.0.0)
   - GoogleSignIn (~> 7.0.0)
+  - HandyJSON (~> 5.0.2)
+  - JKCategories
   - Kingfisher (= 6.3.1)
+  - NVActivityIndicatorView
   - PromiseKit (~> 6.8)
   - SnapKit (~> 5.6.0)
+  - SwifterSwift
+  - Toast-Swift (~> 5.0.1)
   - TweetNacl (~> 1.0.0)
-  - "web3.swift (from `git@github.com:LevenWin/web3.swift-1.git`, commit `18c22b917815a987d0d7af4761acd7e6102e93c9`)"
+  - web3.swift (from `../../Fork/web3.swift/`)
 
 SPEC REPOS:
   trunk:
@@ -57,22 +230,21 @@ SPEC REPOS:
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
+    - HandyJSON
+    - JKCategories
     - Kingfisher
     - Logging
+    - NVActivityIndicatorView
     - PromiseKit
     - secp256k1.swift
     - SnapKit
+    - SwifterSwift
+    - Toast-Swift
     - TweetNacl
 
 EXTERNAL SOURCES:
   web3.swift:
-    :commit: 18c22b917815a987d0d7af4761acd7e6102e93c9
-    :git: "git@github.com:LevenWin/web3.swift-1.git"
-
-CHECKOUT OPTIONS:
-  web3.swift:
-    :commit: 18c22b917815a987d0d7af4761acd7e6102e93c9
-    :git: "git@github.com:LevenWin/web3.swift-1.git"
+    :path: "../../Fork/web3.swift/"
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
@@ -83,14 +255,19 @@ SPEC CHECKSUMS:
   GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
   GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
   GTMSessionFetcher: c1edebe64e9fb4e8f6415d018edf1fd3eac074a1
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  JKCategories: c995567f04ff98680313f56544e6cb62d3152733
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   Logging: 9ef4ecb546ad3169398d5a723bc9bea1c46bef26
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
   web3.swift: 82f5f5bd5b4983e155982080d4bfbfbc5e56e92a
 
-PODFILE CHECKSUM: 1edffd678890704dd6199242b86d2036064cba56
+PODFILE CHECKSUM: 31e71036708568b121d1021ff069744fad759a94
 
 COCOAPODS: 1.11.3

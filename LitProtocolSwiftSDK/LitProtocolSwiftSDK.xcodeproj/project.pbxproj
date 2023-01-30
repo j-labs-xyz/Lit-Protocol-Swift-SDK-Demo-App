@@ -21,6 +21,13 @@
 		BA211D1D29717AF900C7BB26 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1C29717AF900C7BB26 /* Error.swift */; };
 		BA211D1F297181F400C7BB26 /* SessionSigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1E297181F400C7BB26 /* SessionSigs.swift */; };
 		BA211D212972910B00C7BB26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D202972910B00C7BB26 /* Constants.swift */; };
+		BA5007002987DB8A00B87A06 /* ValueSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5006FF2987DB8A00B87A06 /* ValueSendView.swift */; };
+		BA5007042987E08500B87A06 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5007032987E08500B87A06 /* WalletManager.swift */; };
+		BA5007072987E20900B87A06 /* WalleteSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5007052987E20900B87A06 /* WalleteSendViewController.swift */; };
+		BA5007082987E20900B87A06 /* WalleteSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA5007062987E20900B87A06 /* WalleteSendViewController.xib */; };
+		BA50070B2987F64900B87A06 /* WalletAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5007092987F64900B87A06 /* WalletAddressViewController.swift */; };
+		BA50070C2987F64900B87A06 /* WalletAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA50070A2987F64900B87A06 /* WalletAddressViewController.xib */; };
+		BA50070E2987F86800B87A06 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA50070D2987F86800B87A06 /* Extensions.swift */; };
 		BA67949B2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc in Sources */ = {isa = PBXBuildFile; fileRef = BA67949A2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc */; };
 		BA6794A12965A4FF00E22F56 /* LitProtocolSwiftSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */; };
 		BA6794A62965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6794A52965A4FF00E22F56 /* LitProtocolSwiftSDKTests.swift */; };
@@ -139,6 +146,13 @@
 		BA211D1C29717AF900C7BB26 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		BA211D1E297181F400C7BB26 /* SessionSigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSigs.swift; sourceTree = "<group>"; };
 		BA211D202972910B00C7BB26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BA5006FF2987DB8A00B87A06 /* ValueSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueSendView.swift; sourceTree = "<group>"; };
+		BA5007032987E08500B87A06 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
+		BA5007052987E20900B87A06 /* WalleteSendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalleteSendViewController.swift; sourceTree = "<group>"; };
+		BA5007062987E20900B87A06 /* WalleteSendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalleteSendViewController.xib; sourceTree = "<group>"; };
+		BA5007092987F64900B87A06 /* WalletAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddressViewController.swift; sourceTree = "<group>"; };
+		BA50070A2987F64900B87A06 /* WalletAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletAddressViewController.xib; sourceTree = "<group>"; };
+		BA50070D2987F86800B87A06 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BA6794962965A4FF00E22F56 /* LitProtocolSwiftSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LitProtocolSwiftSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6794992965A4FF00E22F56 /* LitProtocolSwiftSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LitProtocolSwiftSDK.h; sourceTree = "<group>"; };
 		BA67949A2965A4FF00E22F56 /* LitProtocolSwiftSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = LitProtocolSwiftSDK.docc; sourceTree = "<group>"; };
@@ -317,16 +331,23 @@
 			isa = PBXGroup;
 			children = (
 				BAE9B299296BD30400579413 /* Constants.swift */,
+				BA5007032987E08500B87A06 /* WalletManager.swift */,
 				BA6794B62965A53100E22F56 /* AppDelegate.swift */,
+				BA5007052987E20900B87A06 /* WalleteSendViewController.swift */,
+				BA5007062987E20900B87A06 /* WalleteSendViewController.xib */,
+				BA5007092987F64900B87A06 /* WalletAddressViewController.swift */,
+				BA50070A2987F64900B87A06 /* WalletAddressViewController.xib */,
 				BAE9B29B296BD49E00579413 /* MintingPKPViewController.swift */,
 				BAE9B297296BCF0400579413 /* SignInViewController.swift */,
 				BAE9B29D296BE1CB00579413 /* WalletViewController.swift */,
 				BA8FD5752966DF17008F687C /* SplashViewController.swift */,
+				BA5006FF2987DB8A00B87A06 /* ValueSendView.swift */,
 				BA8FD5772966DFBB008F687C /* logo_gif.gif */,
 				BA6794BC2965A53100E22F56 /* Main.storyboard */,
 				BA6794BF2965A53300E22F56 /* Assets.xcassets */,
 				BA6794C12965A53300E22F56 /* LaunchScreen.storyboard */,
 				BA6794C42965A53300E22F56 /* Info.plist */,
+				BA50070D2987F86800B87A06 /* Extensions.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -590,6 +611,8 @@
 			files = (
 				BA6794C32965A53300E22F56 /* LaunchScreen.storyboard in Resources */,
 				BA6794C02965A53300E22F56 /* Assets.xcassets in Resources */,
+				BA50070C2987F64900B87A06 /* WalletAddressViewController.xib in Resources */,
+				BA5007082987E20900B87A06 /* WalleteSendViewController.xib in Resources */,
 				BA8FD5782966DFBB008F687C /* logo_gif.gif in Resources */,
 				BA6794BE2965A53100E22F56 /* Main.storyboard in Resources */,
 			);
@@ -771,9 +794,14 @@
 			files = (
 				BAE9B29A296BD30400579413 /* Constants.swift in Sources */,
 				BAE9B29E296BE1CB00579413 /* WalletViewController.swift in Sources */,
+				BA5007002987DB8A00B87A06 /* ValueSendView.swift in Sources */,
+				BA5007072987E20900B87A06 /* WalleteSendViewController.swift in Sources */,
+				BA50070B2987F64900B87A06 /* WalletAddressViewController.swift in Sources */,
 				BAE9B298296BCF0400579413 /* SignInViewController.swift in Sources */,
 				BAE9B29C296BD49E00579413 /* MintingPKPViewController.swift in Sources */,
+				BA5007042987E08500B87A06 /* WalletManager.swift in Sources */,
 				BA6794B72965A53100E22F56 /* AppDelegate.swift in Sources */,
+				BA50070E2987F86800B87A06 /* Extensions.swift in Sources */,
 				BA8FD5762966DF17008F687C /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
