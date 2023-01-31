@@ -7,7 +7,6 @@
 
 import UIKit
 import web3
-import NVActivityIndicatorView
 import Toast_Swift
 import JKCategories
 import WebKit
@@ -26,14 +25,14 @@ class WalleteSendViewController: UIViewController {
     var isSending: Bool = false {
         didSet {
             if isSending {
-                self.loadingView.startAnimating()
+                self.loadingView.startLoading()
             } else {
-                self.loadingView.stopAnimating()
+                self.loadingView.stopLoading()
             }
         }
     }
     
-    lazy var loadingView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150), type: .ballClipRotateMultiple, color: UIColor.black.withAlphaComponent(0.8), padding: 20)
+    lazy var loadingView = SendLoadingView()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Send"
@@ -43,8 +42,7 @@ class WalleteSendViewController: UIViewController {
         self.sendButton.layer.masksToBounds = true
         self.view.addSubview(self.loadingView)
         self.loadingView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 150, height: 150))
+            make.edges.equalToSuperview()
         }
         
         self.balanceLabel.text = (WalletManager.shared.currentWallet?.balance ?? 0.0).str_6f
