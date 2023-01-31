@@ -4,8 +4,8 @@
 def litSDKDependency
   pod "PromiseKit", "~> 6.8"
   pod 'TweetNacl', '~> 1.0.0'
-  pod 'web3.swift', :path => "../../Fork/web3.swift/"
-#  pod 'web3.swift', :git => "git@github.com:LevenWin/web3.swift-1.git", :commit => "18c22b917815a987d0d7af4761acd7e6102e93c9"
+#  pod 'web3.swift', :path => "../../Fork/web3.swift/"
+  pod 'web3.swift', :git => "git@github.com:LevenWin/web3.swift-1.git", :commit => "d40d4e51e6f1a1e80dc69902e2acba11841e2e9b"
 
 #  pod 'web3swift'
 end

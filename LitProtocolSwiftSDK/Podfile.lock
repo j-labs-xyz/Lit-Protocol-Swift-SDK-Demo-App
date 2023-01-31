@@ -218,7 +218,7 @@ DEPENDENCIES:
   - SwifterSwift
   - Toast-Swift (~> 5.0.1)
   - TweetNacl (~> 1.0.0)
-  - web3.swift (from `../../Fork/web3.swift/`)
+  - "web3.swift (from `git@github.com:LevenWin/web3.swift-1.git`, commit `d40d4e51e6f1a1e80dc69902e2acba11841e2e9b`)"
 
 SPEC REPOS:
   trunk:
@@ -244,7 +244,13 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   web3.swift:
-    :path: "../../Fork/web3.swift/"
+    :commit: d40d4e51e6f1a1e80dc69902e2acba11841e2e9b
+    :git: "git@github.com:LevenWin/web3.swift-1.git"
+
+CHECKOUT OPTIONS:
+  web3.swift:
+    :commit: d40d4e51e6f1a1e80dc69902e2acba11841e2e9b
+    :git: "git@github.com:LevenWin/web3.swift-1.git"
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
@@ -268,6 +274,6 @@ SPEC CHECKSUMS:
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
   web3.swift: 82f5f5bd5b4983e155982080d4bfbfbc5e56e92a
 
-PODFILE CHECKSUM: 31e71036708568b121d1021ff069744fad759a94
+PODFILE CHECKSUM: 1598110c89bff5ab0ed9d2a7ef977e14b336640e
 
 COCOAPODS: 1.11.3
