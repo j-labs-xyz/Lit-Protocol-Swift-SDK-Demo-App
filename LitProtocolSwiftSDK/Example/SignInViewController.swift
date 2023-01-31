@@ -103,19 +103,24 @@ class SignInViewController: UIViewController {
             if let profile = res?.user.profile, let tokenString = res?.user.idToken?.tokenString {
                 print(tokenString)
                 self.tokenString = tokenString
-                self.infoLabel.text = "Get PKP..."
-                
-                let userInfo = UserInfo()
-                userInfo.avatar = profile.imageURL(withDimension: 300)?.absoluteString
-                userInfo.name = profile.name
-                userInfo.email = profile.email
-                self.wallet.userInfo = userInfo
-                
-                let vc = MintingPKPViewController(googleTokenString: tokenString) { pkpEthAddress, pkpPublicKey in
-                    self.didMintPKP(pkpEthAddress: pkpEthAddress, pkpPublicKey: pkpPublicKey, profile: profile)
+                if let wallet = WalletManager.shared.loadWallet(by: profile.email) {
+                    self.wallet = wallet
+                    self.didMintPKP(pkpEthAddress: self.wallet.address, pkpPublicKey: self.wallet.publicKey, profile: profile)
+                } else {
+                    self.infoLabel.text = "Get PKP..."
+                    let userInfo = UserInfo()
+                    userInfo.avatar = profile.imageURL(withDimension: 300)?.absoluteString
+                    userInfo.name = profile.name
+                    userInfo.email = profile.email
+                    self.wallet.userInfo = userInfo
+                    
+                    let vc = MintingPKPViewController(googleTokenString: tokenString) { pkpEthAddress, pkpPublicKey in
+                        self.didMintPKP(pkpEthAddress: pkpEthAddress, pkpPublicKey: pkpPublicKey, profile: profile)
+                    }
+                    vc.isModalInPresentation = true
+                    self.present(vc, animated: true)
                 }
-                vc.isModalInPresentation = true
-                self.present(vc, animated: true)
+                
             }
         }
     }

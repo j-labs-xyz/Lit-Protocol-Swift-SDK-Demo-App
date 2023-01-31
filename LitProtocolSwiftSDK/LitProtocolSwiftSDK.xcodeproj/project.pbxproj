@@ -13,6 +13,7 @@
 		BA03CA8F298156C6002E892B /* Libecdsa_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA03CA89298156C6002E892B /* Libecdsa_swift.framework */; };
 		BA03CA90298156C6002E892B /* Libecdsa_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA03CA89298156C6002E892B /* Libecdsa_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA03CA952981571F002E892B /* lecdsa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA03CA942981571F002E892B /* lecdsa.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		BA1BC4A6298951EC00F2FC18 /* SendLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1BC4A5298951EC00F2FC18 /* SendLoadingView.swift */; };
 		BA211D1229715A7700C7BB26 /* NodeClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1129715A7700C7BB26 /* NodeClientConfig.swift */; };
 		BA211D1429715F2900C7BB26 /* NodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D1329715F2900C7BB26 /* NodeResponse.swift */; };
 		BA211D162971630F00C7BB26 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA211D152971630F00C7BB26 /* Network.swift */; };
@@ -138,6 +139,7 @@
 		BA03CA89298156C6002E892B /* Libecdsa_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Libecdsa_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA03CA8B298156C6002E892B /* Libecdsa_swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Libecdsa_swift.h; sourceTree = "<group>"; };
 		BA03CA942981571F002E892B /* lecdsa.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = lecdsa.a; sourceTree = "<group>"; };
+		BA1BC4A5298951EC00F2FC18 /* SendLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLoadingView.swift; sourceTree = "<group>"; };
 		BA211D1129715A7700C7BB26 /* NodeClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeClientConfig.swift; sourceTree = "<group>"; };
 		BA211D1329715F2900C7BB26 /* NodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeResponse.swift; sourceTree = "<group>"; };
 		BA211D152971630F00C7BB26 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				BA6794C12965A53300E22F56 /* LaunchScreen.storyboard */,
 				BA6794C42965A53300E22F56 /* Info.plist */,
 				BA50070D2987F86800B87A06 /* Extensions.swift */,
+				BA1BC4A5298951EC00F2FC18 /* SendLoadingView.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				BA6794B72965A53100E22F56 /* AppDelegate.swift in Sources */,
 				BA50070E2987F86800B87A06 /* Extensions.swift in Sources */,
 				BA8FD5762966DF17008F687C /* SplashViewController.swift in Sources */,
+				BA1BC4A6298951EC00F2FC18 /* SendLoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,7 +876,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = KZCG3BASLR;
+				DEVELOPMENT_TEAM = A5HS3RH994;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1062,7 +1066,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = KZCG3BASLR;
+				DEVELOPMENT_TEAM = A5HS3RH994;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1130,7 +1134,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KZCG3BASLR;
+				DEVELOPMENT_TEAM = A5HS3RH994;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
@@ -1170,7 +1174,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KZCG3BASLR;
+				DEVELOPMENT_TEAM = A5HS3RH994;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1184,7 +1188,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jlabs.AuthPKPExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leven.AuthPKPExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1231,7 +1235,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = KZCG3BASLR;
+				DEVELOPMENT_TEAM = A5HS3RH994;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

@@ -156,11 +156,9 @@ PODS:
   - JKCategories/UIKit/UIView (1.9.3)
   - JKCategories/UIKit/UIViewController (1.9.3)
   - JKCategories/UIKit/UIWindow (1.9.3)
+  - KeychainSwift (20.0.0)
   - Kingfisher (6.3.1)
   - Logging (1.0.0)
-  - NVActivityIndicatorView (5.1.1):
-    - NVActivityIndicatorView/Base (= 5.1.1)
-  - NVActivityIndicatorView/Base (5.1.1)
   - PromiseKit (6.18.1):
     - PromiseKit/CorePromise (= 6.18.1)
     - PromiseKit/Foundation (= 6.18.1)
@@ -211,8 +209,8 @@ DEPENDENCIES:
   - GoogleSignIn (~> 7.0.0)
   - HandyJSON (~> 5.0.2)
   - JKCategories
+  - KeychainSwift
   - Kingfisher (= 6.3.1)
-  - NVActivityIndicatorView
   - PromiseKit (~> 6.8)
   - SnapKit (~> 5.6.0)
   - SwifterSwift
@@ -232,9 +230,9 @@ SPEC REPOS:
     - GTMSessionFetcher
     - HandyJSON
     - JKCategories
+    - KeychainSwift
     - Kingfisher
     - Logging
-    - NVActivityIndicatorView
     - PromiseKit
     - secp256k1.swift
     - SnapKit
@@ -263,9 +261,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: c1edebe64e9fb4e8f6415d018edf1fd3eac074a1
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   JKCategories: c995567f04ff98680313f56544e6cb62d3152733
+  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   Logging: 9ef4ecb546ad3169398d5a723bc9bea1c46bef26
-  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
@@ -274,6 +272,6 @@ SPEC CHECKSUMS:
   TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
   web3.swift: 82f5f5bd5b4983e155982080d4bfbfbc5e56e92a
 
-PODFILE CHECKSUM: 1598110c89bff5ab0ed9d2a7ef977e14b336640e
+PODFILE CHECKSUM: 632e4c2ddb46262148c2674b9361d977d6d23cf1
 
 COCOAPODS: 1.11.3

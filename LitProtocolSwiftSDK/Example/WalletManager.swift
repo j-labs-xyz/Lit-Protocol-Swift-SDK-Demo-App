@@ -10,6 +10,7 @@ import HandyJSON
 import LitProtocolSwiftSDK
 import web3
 import PromiseKit
+import KeychainSwift
 class WalletManager {
     static let shared: WalletManager = WalletManager()
 
@@ -19,8 +20,8 @@ class WalletManager {
 
     var currentWallet: WalletModel? {
         didSet {
-            if let cur = currentWallet {
-                self.saveWallet(cur)
+            if let _ = currentWallet {
+                self.saveCurWallet()
             }
             self.litClient.updateAuth(self.currentWallet?.sessionSigs ?? [:])
         }
@@ -36,7 +37,7 @@ class WalletManager {
     }
     
     func initWallet() {
-        self.currentWallet = self.loadLocalWallet()
+        self.currentWallet = self.loadCurrentWallet()
     }
 
 }
@@ -58,7 +59,8 @@ extension WalletManager {
                         print("Value: \(value)")
                         print("Hex: \(res.web3.hexString)")
                         currentWallet.balance = left
-                        self.saveWallet(currentWallet)
+                        self.currentWallet = currentWallet
+                        self.saveCurWallet()
                         DispatchQueue.main.async {
                             resolver.fulfill(left)
                         }
@@ -74,22 +76,45 @@ extension WalletManager {
     }
 }
 
-private let walletLocalKey = "cur_wallet"
+private let walletLocalKey = "local_lit_wallets"
+private let curWalletLocalKey = "cur_local_lit_wallets"
+
 extension WalletManager {
     
-    func removeWallet() {
-        UserDefaults.standard.removeObject(forKey: walletLocalKey)
+    func removeCurWallet() {
+        let wallets = _removeCurWallet()
+        KeychainSwift().set(wallets.toJSONString() ?? "", forKey: walletLocalKey)
     }
     
-    func saveWallet(_ wallet: WalletModel) {
-        UserDefaults.standard.set(wallet.toJSONString() ?? "", forKey: walletLocalKey)
+    func _removeCurWallet() -> [WalletModel] {
+        var wallets: [WalletModel] = loadAllWalletes()
+        wallets.removeAll(where: { ($0.userInfo?.email) == (currentWallet?.userInfo?.email ?? "") })
+        return wallets
     }
-    
-    func loadLocalWallet() -> WalletModel? {
-        if let jsonString = UserDefaults.standard.value(forKey: walletLocalKey) as? String {
-            return WalletModel.deserialize(from: jsonString)
+
+    func saveCurWallet() {
+        var wallets: [WalletModel] = _removeCurWallet()
+        if let currentWallet = currentWallet {
+            wallets.append(currentWallet)
+            UserDefaults.standard.set(currentWallet.userInfo?.email ?? "", forKey: curWalletLocalKey)
         }
-        return nil
+        KeychainSwift().set(wallets.toJSONString() ?? "", forKey: walletLocalKey)
+    }
+    
+    func loadCurrentWallet() -> WalletModel? {
+        let curWalletEmail = UserDefaults.standard.string(forKey: curWalletLocalKey)
+        return loadAllWalletes().first(where: { $0.userInfo?.email == curWalletEmail })
+    }
+    
+    func loadWallet(by email: String) -> WalletModel? {
+        return loadAllWalletes().first(where: { $0.userInfo?.email == email })
+    }
+    
+    func loadAllWalletes() -> [WalletModel] {
+        if let jsonString = KeychainSwift().get(walletLocalKey){
+            return [WalletModel].deserialize(from: jsonString)?.compactMap { $0 } ?? []
+        }
+        return []
     }
 }
 
@@ -102,6 +127,7 @@ class WalletModel: HandyJSON {
     var sessionSigs: [String: Any]?
     required init() {}
 }
+
 
 
 class UserInfo: HandyJSON {
