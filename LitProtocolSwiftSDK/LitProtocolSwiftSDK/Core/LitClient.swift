@@ -337,7 +337,7 @@ public class LitClient {
         return date
     }
     
-     public func computeAddress(publicKey: String) -> String? {
+     func computeAddress(publicKey: String) -> String? {
          var pkpPublicKeyData = publicKey.web3.hexData
          pkpPublicKeyData = pkpPublicKeyData?.dropFirst()
          if let pkpPublicKeyHash = pkpPublicKeyData?.web3.keccak256 {

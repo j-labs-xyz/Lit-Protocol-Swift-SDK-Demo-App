@@ -7,12 +7,12 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.214877071991-0g57o8e6viau3350kni9ecdo9k2othgv</string>
+				<string>com.googleusercontent.apps.214877071991-5ce6j35ks55domts7vnstv9cou0s37qc</string>
 			</array>
 		</dict>
 	</array>
 	<key>GIDClientID</key>
-	<string>214877071991-0g57o8e6viau3350kni9ecdo9k2othgv.apps.googleusercontent.com</string>
+	<string>214877071991-5ce6j35ks55domts7vnstv9cou0s37qc.apps.googleusercontent.com</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

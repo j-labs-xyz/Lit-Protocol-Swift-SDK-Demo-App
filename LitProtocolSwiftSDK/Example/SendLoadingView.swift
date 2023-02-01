@@ -25,6 +25,8 @@ class SendLoadingView: UIView {
         self.addSubview(self.litLogo)
         self.litLogo.alpha = 0
         self.isUserInteractionEnabled = false
+        litLogo.layer.cornerRadius = 8
+        litLogo.layer.masksToBounds = true
         self.litLogo.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(-80)
