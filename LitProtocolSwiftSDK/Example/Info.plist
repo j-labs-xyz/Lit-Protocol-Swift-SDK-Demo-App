@@ -18,5 +18,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>RELAY_SERVER</key>
+	<string>https://lit-relay-server.api.3wlabs.xyz:3001/</string>
 </dict>
 </plist>

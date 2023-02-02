@@ -162,6 +162,8 @@ class WalletViewController: UIViewController {
         
         self.sendButton.addTarget(self, action: #selector(clickSend), for: .touchUpInside)
         self.receiveButton.addTarget(self, action: #selector(clickReceive), for: .touchUpInside)
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "logout")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action:  #selector(logout)), UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)]
         
     }
     
@@ -174,6 +176,18 @@ class WalletViewController: UIViewController {
         self.avatarImageView.kf.setImage(with: URL(string:  self.wallet.userInfo?.avatar ?? "")!)
         self.nameLabel.text = self.wallet.userInfo?.name
         self.emailLabel.text = self.wallet.userInfo?.email
+    }
+    
+    @objc func logout() {
+        let alertVC = UIAlertController(title: "are you sure to log out?", message: nil, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "cancel", style: .default))
+        alertVC.addAction(UIAlertAction(title: "sure", style: .destructive, handler: { _ in
+            WalletManager.shared.logout()
+            if let window =  (UIApplication.shared.delegate as? AppDelegate)?.window {
+                window.rootViewController = SignInViewController()
+            }
+        }))
+        self.present(alertVC, animated: true)
     }
     
     @objc

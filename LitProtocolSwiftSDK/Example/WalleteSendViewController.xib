@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -100,7 +101,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsM-nM-1ha">
-                    <rect key="frame" x="16" y="283" width="361" height="44"/>
+                    <rect key="frame" x="16" y="754" width="361" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="NLy-Fz-dRe"/>
@@ -111,13 +112,13 @@
                     </buttonConfiguration>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBI-bi-06v">
-                    <rect key="frame" x="15.999999999999993" y="377" width="106.33333333333331" height="20.333333333333314"/>
+                    <rect key="frame" x="15.999999999999993" y="289" width="106.33333333333331" height="20.333333333333314"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKI-Y4-MbU">
-                    <rect key="frame" x="16" y="413.33333333333331" width="361" height="20.333333333333314"/>
+                    <rect key="frame" x="16" y="325.33333333333331" width="361" height="20.333333333333314"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <color key="textColor" systemColor="tintColor"/>
                     <nil key="highlightedColor"/>
@@ -133,9 +134,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qn5-lC-Kkv" secondAttribute="trailing" constant="16" id="PLC-RG-2UW"/>
                 <constraint firstItem="fsM-nM-1ha" firstAttribute="trailing" secondItem="qn5-lC-Kkv" secondAttribute="trailing" id="RHb-Ym-0tg"/>
                 <constraint firstItem="qn5-lC-Kkv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="XyG-Ld-Asp"/>
-                <constraint firstItem="fsM-nM-1ha" firstAttribute="top" secondItem="qn5-lC-Kkv" secondAttribute="bottom" constant="44" id="aUN-WX-8mU"/>
+                <constraint firstItem="lBI-bi-06v" firstAttribute="top" secondItem="qn5-lC-Kkv" secondAttribute="bottom" constant="50" id="cXP-1W-xgR"/>
                 <constraint firstItem="lBI-bi-06v" firstAttribute="leading" secondItem="fsM-nM-1ha" secondAttribute="leading" id="g0k-Z9-X0R"/>
-                <constraint firstItem="lBI-bi-06v" firstAttribute="top" secondItem="fsM-nM-1ha" secondAttribute="bottom" constant="50" id="sGq-n0-Hp8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fsM-nM-1ha" secondAttribute="bottom" constant="20" id="wB1-4V-Z6x"/>
                 <constraint firstItem="rKI-Y4-MbU" firstAttribute="leading" secondItem="lBI-bi-06v" secondAttribute="leading" id="ylS-y1-yBr"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>

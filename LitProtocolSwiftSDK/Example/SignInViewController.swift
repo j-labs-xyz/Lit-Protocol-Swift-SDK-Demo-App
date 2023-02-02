@@ -21,9 +21,14 @@ class SignInViewController: UIViewController {
         return logo
     }()
     
-    lazy var litLogo: UIImageView = {
-        let logo = UIImageView()
-        logo.image = UIImage(named: "lit_logo")
+    
+    lazy var litLogo: FLAnimatedImageView = {
+        let logo = FLAnimatedImageView()
+        if let url = Bundle.main.url(forResource: "logo_gif", withExtension: "gif"), let data = try? Data(contentsOf: url) {
+            let image = FLAnimatedImage(gifData: data)
+            logo.animatedImage = image
+        }
+        logo.startAnimating()
         return logo
     }()
     
@@ -35,6 +40,8 @@ class SignInViewController: UIViewController {
         return label
         
     }()
+    lazy var siginButton = UIButton(type: .custom)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +75,6 @@ class SignInViewController: UIViewController {
             make.size.equalTo(90)
         }
         
-        let siginButton = UIButton(type: .custom)
         siginButton.setTitle("Sign   in", for: .normal)
         siginButton.setTitleColor(UIColor.white, for: .normal)
         siginButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .medium)
@@ -98,6 +104,7 @@ class SignInViewController: UIViewController {
     @objc
     func gotoSignin() {
         self.infoLabel.text = "Get Google Auth..."
+        self.siginButton.isHidden = true
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] res, err in
             guard let `self` = self else { return }
             if let profile = res?.user.profile, let tokenString = res?.user.idToken?.tokenString {
@@ -113,14 +120,20 @@ class SignInViewController: UIViewController {
                     userInfo.name = profile.name
                     userInfo.email = profile.email
                     self.wallet.userInfo = userInfo
-                    
-                    let vc = MintingPKPViewController(googleTokenString: tokenString) { pkpEthAddress, pkpPublicKey in
-                        self.didMintPKP(pkpEthAddress: pkpEthAddress, pkpPublicKey: pkpPublicKey, profile: profile)
+    
+                    let vc = try! MintingPKPViewController(googleTokenString: tokenString) { pkpEthAddress, pkpPublicKey, errorString in
+                        if let pkpEthAddress = pkpEthAddress, let pkpPublicKey = pkpPublicKey {
+                            self.didMintPKP(pkpEthAddress: pkpEthAddress, pkpPublicKey: pkpPublicKey, profile: profile)
+                        } else {
+                            self.siginButton.isHidden = false
+                        }
                     }
                     vc.isModalInPresentation = true
                     self.present(vc, animated: true)
                 }
                 
+            } else {
+                self.siginButton.isHidden = false
             }
         }
     }
@@ -163,8 +176,9 @@ class SignInViewController: UIViewController {
     pkpEthAddress: \(self.wallet.address)
     Signature: \(res)
     """
-            }.catch { err in
-                
+            }.catch { [weak self]err in
+                guard let self = self else { return }
+                self.siginButton.isHidden = false
             }
         } else {
             let _ = self.litClient.getSessionSigs(props).done { [weak self] res in
@@ -178,8 +192,9 @@ class SignInViewController: UIViewController {
     pkpEthAddress: \(self.wallet.address)
     Signature: \(res)
     """
-            }.catch { err in
-                
+            }.catch {  [weak self]err in
+                guard let self = self else { return }
+                self.siginButton.isHidden = false
             }
         }
         

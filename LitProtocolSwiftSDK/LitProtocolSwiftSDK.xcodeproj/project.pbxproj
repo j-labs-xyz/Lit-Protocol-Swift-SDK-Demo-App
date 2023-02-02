@@ -52,6 +52,7 @@
 		BA9795DE29815BCB0054EE17 /* Libecdsa_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA03CA89298156C6002E892B /* Libecdsa_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA9795E52981639D0054EE17 /* libecdsa.h in Headers */ = {isa = PBXBuildFile; fileRef = BA03CA8229815469002E892B /* libecdsa.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		BA9795E7298166F00054EE17 /* Libecdsa.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9795E6298166F00054EE17 /* Libecdsa.swift */; };
+		BAD7A346298B564400473F7A /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7A345298B564400473F7A /* Error.swift */; };
 		BAE9B298296BCF0400579413 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9B297296BCF0400579413 /* SignInViewController.swift */; };
 		BAE9B29A296BD30400579413 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9B299296BD30400579413 /* Constants.swift */; };
 		BAE9B29C296BD49E00579413 /* MintingPKPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9B29B296BD49E00579413 /* MintingPKPViewController.swift */; };
@@ -177,6 +178,7 @@
 		BA8FD57A2966F14F008F687C /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA9795E42981630C0054EE17 /* Libecdsa_swift.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = Libecdsa_swift.modulemap; sourceTree = "<group>"; };
 		BA9795E6298166F00054EE17 /* Libecdsa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Libecdsa.swift; sourceTree = "<group>"; };
+		BAD7A345298B564400473F7A /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		BAE9B297296BCF0400579413 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		BAE9B299296BD30400579413 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BAE9B29B296BD49E00579413 /* MintingPKPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MintingPKPViewController.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				BA6794C42965A53300E22F56 /* Info.plist */,
 				BA50070D2987F86800B87A06 /* Extensions.swift */,
 				BA1BC4A5298951EC00F2FC18 /* SendLoadingView.swift */,
+				BAD7A345298B564400473F7A /* Error.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAE9B29A296BD30400579413 /* Constants.swift in Sources */,
+				BAD7A346298B564400473F7A /* Error.swift in Sources */,
 				BAE9B29E296BE1CB00579413 /* WalletViewController.swift in Sources */,
 				BA5007002987DB8A00B87A06 /* ValueSendView.swift in Sources */,
 				BA5007072987E20900B87A06 /* WalleteSendViewController.swift in Sources */,

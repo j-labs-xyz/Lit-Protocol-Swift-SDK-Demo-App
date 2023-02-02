@@ -29,17 +29,23 @@ class MintingPKPViewController: UIViewController {
         button.setTitleColor(.blue, for: .normal)
         return button
     }()
-    
-    lazy var OAuthClient = LitOAuthClient(relay: RELAY_SERVER)
+
+
+    let OAuthClient: LitOAuthClient
     
     lazy var mintingInfoLabel = UILabel()
 
     let googleTokenString: String
-    let completionHandler: (String, String) -> Void
+    let completionHandler: (String?, String?, String?) -> Void
     
-    init(googleTokenString: String, completionHandler: @escaping (_ pkpEthAddress: String, _ pkpPublicKey: String) -> Void) {
+    init(googleTokenString: String, completionHandler: @escaping (_ pkpEthAddress: String?, _ pkpPublicKey: String?, _ errorString: String?) -> Void) throws {
         self.googleTokenString = googleTokenString
         self.completionHandler = completionHandler
+        if let relayServer = Bundle.main.object(forInfoDictionaryKey: "RELAY_SERVER") as? String {
+            self.OAuthClient = LitOAuthClient(relay: relayServer)
+        } else {
+            throw WalletError.empty_relay_server
+        }
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -85,7 +91,10 @@ class MintingPKPViewController: UIViewController {
     
     @objc
     func closeVC() {
-        self.dismiss(animated: true)
+        self.dismiss(animated: true) {[weak self] in
+            guard let `self` = self else { return }
+            self.completionHandler(nil, nil, "Something error")
+        }
     }
     
     func showOrHideCloseButton(show: Bool) {
@@ -123,7 +132,7 @@ class MintingPKPViewController: UIViewController {
                 
                 self.dismiss(animated: true) { [weak self] in
                     guard let `self` = self else { return }
-                    self.completionHandler(pkpEthAddress, pkpPublicKey)
+                    self.completionHandler(pkpEthAddress, pkpPublicKey, nil)
                 }
             } else if let errorMsg = error {
                 self.showOrHideCloseButton(show: true)

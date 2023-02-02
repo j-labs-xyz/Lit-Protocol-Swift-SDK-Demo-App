@@ -40,6 +40,12 @@ class WalleteSendViewController: UIViewController {
         sendButton.addTarget(self, action: #selector(didClickSend), for: .touchUpInside)
         self.sendButton.layer.cornerRadius = 4
         self.sendButton.layer.masksToBounds = true
+        self.sendButton.snp.remakeConstraints { make in
+            make.left.equalTo(16)
+            make.right.equalTo(-16)
+            make.bottom.equalTo(-safeBottomHeight - 20)
+            make.height.equalTo(50)
+        }
         self.view.addSubview(self.loadingView)
         self.loadingView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

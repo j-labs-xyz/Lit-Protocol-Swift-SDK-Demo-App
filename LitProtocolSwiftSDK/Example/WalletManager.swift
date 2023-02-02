@@ -81,6 +81,10 @@ private let curWalletLocalKey = "cur_local_lit_wallets"
 
 extension WalletManager {
     
+    func logout() {
+        UserDefaults.standard.removeObject(forKey: curWalletLocalKey)
+    }
+    
     func removeCurWallet() {
         let wallets = _removeCurWallet()
         KeychainSwift().set(wallets.toJSONString() ?? "", forKey: walletLocalKey)
