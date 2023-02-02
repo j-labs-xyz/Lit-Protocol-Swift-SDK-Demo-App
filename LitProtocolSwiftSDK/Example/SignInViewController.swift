@@ -21,14 +21,9 @@ class SignInViewController: UIViewController {
         return logo
     }()
     
-    
-    lazy var litLogo: FLAnimatedImageView = {
-        let logo = FLAnimatedImageView()
-        if let url = Bundle.main.url(forResource: "logo_gif", withExtension: "gif"), let data = try? Data(contentsOf: url) {
-            let image = FLAnimatedImage(gifData: data)
-            logo.animatedImage = image
-        }
-        logo.startAnimating()
+    lazy var litLogo: UIImageView = {
+        let logo = UIImageView()
+        logo.image = UIImage(named: "lit_logo")
         return logo
     }()
     
