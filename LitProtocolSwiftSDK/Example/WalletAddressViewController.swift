@@ -16,7 +16,7 @@ class WalletAddressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Wallet Address"
+        self.title = "Receive"
         if let address = WalletManager.shared.currentWallet?.address, let image = UIImage.createQRCode(size: 300, dataStr: address) {
             self.qrIcon.image = image
             self.addressLabel.text = address

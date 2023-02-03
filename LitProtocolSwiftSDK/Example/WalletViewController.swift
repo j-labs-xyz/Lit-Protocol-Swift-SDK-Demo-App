@@ -162,9 +162,9 @@ class WalletViewController: UIViewController {
         
         self.sendButton.addTarget(self, action: #selector(clickSend), for: .touchUpInside)
         self.receiveButton.addTarget(self, action: #selector(clickReceive), for: .touchUpInside)
-        self.navigationController?.navigationBar.tintColor = .black
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "logout")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action:  #selector(logout)), UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)]
-        
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "logout")?.withRenderingMode(.alwaysOriginal).withTintColor(UIColor.white), style: .plain, target: self, action:  #selector(logout)), UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)]
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
+        self.navigationController?.navigationBar.backgroundColor = UIColor.black;
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -179,9 +179,9 @@ class WalletViewController: UIViewController {
     }
     
     @objc func logout() {
-        let alertVC = UIAlertController(title: "are you sure to log out?", message: nil, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "cancel", style: .default))
-        alertVC.addAction(UIAlertAction(title: "sure", style: .destructive, handler: { _ in
+        let alertVC = UIAlertController(title: "Log out?", message: nil, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alertVC.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { _ in
             WalletManager.shared.logout()
             if let window =  (UIApplication.shared.delegate as? AppDelegate)?.window {
                 window.rootViewController = SignInViewController()
